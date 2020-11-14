@@ -1,13 +1,16 @@
 :root {
   --navy: #001f3f;
-  --blue: #0074D9;
-  --aqua: #7FDBFF;
-  --white: #FFFFFF;
-  --silver: #DDDDDD;
-  --gray: #AAAAAA;
-  
-  --mono-font: San Francisco Mono, Monaco, "Consolas", "Lucida Console", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
---sans-font: -apple-system, BlinkMacSystemFont, "avenir next", avenir, helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
+  --blue: #0074d9;
+  --aqua: #7fdbff;
+  --white: #ffffff;
+  --silver: #dddddd;
+  --gray: #aaaaaa;
+
+  --mono-font: San Francisco Mono, Monaco, "Consolas", "Lucida Console",
+    "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+  --sans-font: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
+    helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial,
+    sans-serif;
 }
 
 html {
@@ -20,16 +23,16 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  
+
   border-radius: 10px;
-  border: 10px solid;
+  border-left: 10px solid;
+  border-right: 10px solid;
   border-image-source: linear-gradient(var(--blue), var(--aqua), var(--blue));
   border-image-slice: 1;
-  
+
   background: var(--white);
   background-image: url("https://www.transparenttextures.com/patterns/assault.png");
-    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 .container {
@@ -39,7 +42,7 @@ body {
   background: var(--white);
   min-height: 100%;
   border: 2px solid var(--navy);
-/*   border-radius: 10px; */
+  /*   border-radius: 10px; */
 }
 
 a {
@@ -51,7 +54,7 @@ a {
 nav {
   /* TODO: Add some sort of small border to bottom */
   padding-bottom: 20px;
-  border-bottom: 2px solid black
+  border-bottom: 2px solid black;
 }
 
 nav ul {
@@ -79,5 +82,5 @@ article h2 {
 
 article {
   padding: 0 0 20px;
-/*   TODO: improve line height */
+  /* TODO: improve line height */
 }
