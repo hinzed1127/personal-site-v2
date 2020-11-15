@@ -13,17 +13,25 @@
     sans-serif;
 }
 
+html,
+body,
+.border {
+  min-height: 100%;
+  height: 100%;
+}
+
+.container {
+  min-height: 100%;
+}
+
 html {
   font-family: var(--sans-font);
   color: var(--navy);
   background: var(--silver);
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-
+.border {
+  overflow: auto;
   border-radius: 10px;
   border: 10px solid;
   border-image-source: linear-gradient(var(--blue), var(--aqua), var(--blue));
@@ -39,10 +47,8 @@ body {
   margin: 0 auto;
   padding: 0 1em;
   background: var(--white);
-  min-height: 100%;
   border-left: 2px solid var(--navy);
   border-right: 2px solid var(--navy);
-  /*   border-radius: 10px; */
 }
 
 a {
@@ -52,7 +58,6 @@ a {
 }
 
 nav {
-  /* TODO: Add some sort of small border to bottom */
   padding-bottom: 20px;
   border-bottom: 2px solid black;
 }
