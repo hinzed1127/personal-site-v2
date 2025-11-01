@@ -8,13 +8,8 @@
 
   --border-height: 15px;
 
-  /* --mono-font: San Francisco Mono, Monaco, "Consolas", "Lucida Console",
-    "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace; */
-  --sans-font: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
-    helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial,
-    sans-serif;
-
-  --serif-font: font-family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-optima: Optima, Candara, "Noto Sans", source-sans-pro, sans-serif;
 
   --shadow-color: 240deg 100% 7%;
   --shadow-elevation-medium:
@@ -37,7 +32,7 @@ body,
 }
 
 html {
-  font-family: var(--sans-font);
+  font-family: var(--font-optima);
   /* color: var(--navy); */
   background: var(--silver);
 }
