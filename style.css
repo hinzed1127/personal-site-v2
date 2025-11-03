@@ -95,6 +95,7 @@ header {
 }
 
 header img {
+  border-radius: 20%;
   height: 3em;
   width: auto;
   object-fit: contain;
