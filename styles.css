@@ -94,6 +94,11 @@ header {
   flex-wrap: wrap;
 }
 
+.header-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 header img {
   border-radius: 20%;
   height: 3em;
@@ -101,10 +106,10 @@ header img {
   object-fit: contain;
 }
 
-header h1 {
+/* header h1 {
   margin: 0;
   margin-right: auto;
-}
+} */
 
 nav ul {
   list-style-type: none;
