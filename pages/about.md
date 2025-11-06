@@ -1,3 +1,8 @@
+---
+title: custom about title
+layout: base.liquid
+permalink: /about/
+---
 # A Little About Me
 
 ## The Work Stuff

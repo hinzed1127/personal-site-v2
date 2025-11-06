@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <title>CodePen - Blog Refresh</title>
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 
 <body>
@@ -14,7 +14,7 @@
     <div class="container">
       <header>
         <img src="headshot.png" alt="" aria-hidden="true">
-        <h1>Dan Hinze</h1>
+        <h1><a href="/">Dan Hinze</a></h1>
         <nav>
           <ul>
             <!-- <li><button>Change ipsum text</button></li> -->
@@ -26,8 +26,8 @@
         </nav>
       </header>
       <article>
-        <h2>Home Page</h2>
-        <!-- dynamically inserted ipsum text for testing -->
+        {{ content }}
+        {% comment %} {{ content | safe }} {% endcomment %}
       </article>
     </div>
     <div class="border"></div>
