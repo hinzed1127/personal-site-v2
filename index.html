@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>CodePen - Blog Refresh</title>
+  <title>Dan Hinze</title>
   <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
@@ -14,20 +14,28 @@
     <div class="container">
       <header>
         <!-- <img src="./headshot.png" alt="" aria-hidden="true"> -->
-        <div class="header-name"><a href="/">Dan Hinze</a></div>
+        <div class="header-name">
+          <h1>
+            <a href="/">Dan Hinze</a>
+          </h1>
+        </div>
         <nav>
           <ul>
-            <!-- <li><button>Change ipsum text</button></li> -->
-            <li><a href="/writing/">Writing</a></li>
-            <li><a href="/reading/">Reading</a></li>
+            <li><a href="/posts/">Posts</a></li>
+            <!-- <li><a href="/reading/">Reading</a></li> -->
             <li><a href="/about/">About</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <!-- <li><a href="/contact/">Contact</a></li> -->
           </ul>
         </nav>
       </header>
       <article>
-        <h1>Home Page</h1>
-        <!-- dynamically inserted ipsum text for testing -->
+        {% for post in collections.post %}
+        <h2>{{ post.data.title }}</h2>
+        {{ post.data.date | date: '%b %d, %Y' }}
+        <div>
+          {{ post.content }}
+        </div>
+        {% endfor %}
       </article>
     </div>
     <div class="border"></div>

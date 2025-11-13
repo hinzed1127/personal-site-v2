@@ -1,7 +1,7 @@
 ---
 title: custom writing title
 layout: base.liquid
-permalink: /writing/
+permalink: /posts/
 ---
 
-# Writing page
+# Posts page
