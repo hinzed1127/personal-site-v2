@@ -1,7 +1,5 @@
 ---
 title: custom writing title
-layout: base.liquid
+layout: posts.liquid
 permalink: /posts/
 ---
-
-# Posts page
