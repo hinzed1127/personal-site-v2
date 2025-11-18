@@ -64,7 +64,8 @@ h1 {
 }
 
 .container {
-  max-width: 45em;
+  /* use `min` to achieve a tiny amount of side margins on mobile */
+  max-width: min(45em, 96vw);
   border-radius: 4px;
   margin: 0 auto;
   padding: 0 1em;
