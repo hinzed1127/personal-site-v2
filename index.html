@@ -29,13 +29,15 @@
       </nav>
     </header>
     <article>
-      {% for post in collections.post %}
-      <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
-      {{ post.data.date | date: '%b %d, %Y' }}
+      {% assign sorted_posts = collections.post | sort: 'data.date' | reverse %}
+      {% assign latest_post = sorted_posts | first %}
+      <h2><a href="{{ latest_post.url }}">{{ latest_post.data.title }}</a></h2>
+      {{ latest_post.data.date | date: '%b %d, %Y' }}
       <div>
-        {{ post.content }}
+        {{ latest_post.content }}
       </div>
-      {% endfor %}
+      <hr class="older-posts-divider">
+      <p><a href="/posts/">View older posts</a></p>
     </article>
   </div>
   <div class="border"></div>

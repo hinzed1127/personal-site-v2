@@ -142,3 +142,7 @@ article p + p {
     text-decoration: none;
   }
 }
+
+.older-posts-divider {
+  margin: 20px 0;
+}
