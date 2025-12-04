@@ -4,11 +4,12 @@ title: "Update 1: Workiversary and Winter"
 date: '2025-12-04'
 ---
 It was a gentle and then aggressive transition from fall to winter in Minneapolis this year. One day I was wearing shorts and raking a final batch of leaves; a few days later, weather had plummeted into single-digit temperatures with a biting wind. Combined with daylight saving time, it's a jarring change to the end of days: walking the dogs in brutal cold, hopefully before early sunsets force that walk into darkness, to boot. It's not my favorite seasonal shift, but I'm combatting it with a focus on more evening reading and an earlier start to my days (those 6 a.m. workouts haven't gotten any easier in freezing darkness, but I'm mostly staying on top of it).
+
 ## One Year at NJ OOI
 
 I celebrated my one year anniversary working at [New Jersey's Office Of Innovation](https://innovation.nj.gov/) at the start of November. After working for a federal contractor for 6+ years, staying within civic tech but moving both *within* government and to a non-federal level was a very intentional decision. Coincidentally, my first day at NJOOI was the day before the general election; the ensuing chaos initiated by DOGE a few months later only validated my decision even more.
 
-One year in, I have few qualms with the decision. I've got great colleagues, I've gotten to dabble with some generative AI applications (with still-mixed feelings about it all), I feel like I'm still learning plenty of new things, and the work usually feels meaningful, which is about all I desire out of a job right now. Here's hoping the next year is just as satisfying.
+One year in, I have few qualms. I've got great colleagues, I've gotten to dabble with some generative AI applications (with still-mixed feelings about it all), I feel like I'm still learning plenty of new things, and the work usually feels meaningful, which is about all I desire out of a job right now. Here's hoping the next year is just as satisfying.
 ## Listening
 
 It's been a really great year of new music for me. I've yet to reflect on the year as a whole, but in the meantime, here's a few recent releases I've really enjoyed:
