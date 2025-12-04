@@ -146,3 +146,20 @@ article p + p {
 .older-posts-divider {
   margin: 20px 0;
 }
+
+blockquote {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--navy);
+  background: #ede9fe;
+  font-style: italic;
+  border-radius: 4px;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+blockquote p + p {
+  margin-top: 0.5rem;
+}

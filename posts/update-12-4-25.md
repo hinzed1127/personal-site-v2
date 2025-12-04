@@ -44,7 +44,9 @@ Vince Gilligan's first project since *Breaking Bad* to exist outside of that uni
 
 ### Creation Lake - Rachel Kushner
 
-[everything i read in november 2024 - by Celine Nguyen](https://www.personalcanon.com/p/everything-i-read-in-november-2024?open=false#%C2%A7rachel-kushners-novel-creation-lake)
+Some commentary: [everything i read in november 2024 - by Celine Nguyen](https://www.personalcanon.com/p/everything-i-read-in-november-2024?open=false#%C2%A7rachel-kushners-novel-creation-lake)
 
 ### [The Goon Squad - Daniel Kolitz (Harper's)](https://harpers.org/archive/2025/11/the-goon-squad-daniel-kolitz-porn-masturbation-loneliness/)
+
+Originally discovered via a recent episode of _Search Engine_, consistently one of my favorite podcasts.
 
