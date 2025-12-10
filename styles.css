@@ -171,3 +171,7 @@ blockquote p + p {
 article hr {
   margin: 30px 0 20px;
 }
+
+ul.posts-list {
+  padding: 0;
+}
