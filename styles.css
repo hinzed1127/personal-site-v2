@@ -33,6 +33,7 @@ html {
   font-family: var(--font-optima);
   /* color: var(--navy); */
   background: var(--silver);
+  text-underline-offset: 2px;
 }
 
 h1 {
