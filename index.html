@@ -1,47 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dan Hinze</title>
-  <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
-  <link rel="stylesheet" href="./styles.css" />
-</head>
-
-<body>
-  <div class="border"></div>
-  <div class="container">
-    <header>
-      <!-- <img src="./headshot.png" alt="" aria-hidden="true"> -->
-      <div class="header-name">
-        <h1>
-          <a href="/">Dan Hinze</a>
-        </h1>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="/posts/">Posts</a></li>
-          <!-- <li><a href="/reading/">Reading</a></li> -->
-          <li><a href="/about/">About</a></li>
-          <!-- <li><a href="/contact/">Contact</a></li> -->
-        </ul>
-      </nav>
-    </header>
-    <article>
-      {% assign sorted_posts = collections.post | sort: 'data.date' | reverse %}
-      {% assign latest_post = sorted_posts | first %}
-      <h2><a href="{{ latest_post.url }}">{{ latest_post.data.title }}</a></h2>
-      {{ latest_post.data.date | date: '%b %d, %Y' }}
-      <div class="post-content">
-        {{ latest_post.content }}
-      </div>
-      <hr class="older-posts-divider">
-      <p><a href="/posts/">View older posts</a></p>
-    </article>
-  </div>
-  <div class="border"></div>
-</body>
-<script src="./index.js"></script>
-
-</html>
+---
+layout: base.liquid
+---
+{% assign sorted_posts = collections.post | sort: 'data.date' | reverse %}
+{% assign latest_post = sorted_posts | first %}
+<h2><a href="{{ latest_post.url }}">{{ latest_post.data.title }}</a></h2>
+{{ latest_post.data.date | date: '%b %d, %Y' }}
+<div class="post-content">
+  {{ latest_post.content }}
+</div>
+<hr class="older-posts-divider">
+<p><a href="/posts/">View older posts</a></p>
