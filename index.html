@@ -4,7 +4,7 @@ layout: base.liquid
 {% assign sorted_posts = collections.post | sort: 'data.date' | reverse %}
 {% assign latest_post = sorted_posts | first %}
 <h2><a href="{{ latest_post.url }}">{{ latest_post.data.title }}</a></h2>
-{{ latest_post.data.date | date: '%b %d, %Y' }}
+{{ latest_post.data.date | date: '%b %d, %Y', 'utc' }}
 <div class="post-content">
   {{ latest_post.content }}
 </div>
