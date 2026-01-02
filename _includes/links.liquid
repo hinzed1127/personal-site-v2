@@ -1,0 +1,35 @@
+---
+layout: base.liquid
+---
+<script>
+function expandAll() {
+  document.querySelectorAll('details:not([open])').forEach(el => el.open = true)
+}
+
+function collapseAll () {
+  document.querySelectorAll('details[open]').forEach(el => el.open = false)
+}
+</script>
+
+<button onClick="expandAll()">Expand All</button>
+<button onClick="collapseAll()">Collapse All</button>
+<details open>
+  <summary>
+    links 1
+  </summary>
+  here's some info on a link I found interesting
+</details>
+
+<details>
+  <summary>
+    links 2
+  </summary>
+  here's some info on a link I found interesting
+</details>
+
+<details>
+  <summary>
+    links 3
+  </summary>
+  here's some info on a link I found interesting
+</details>
