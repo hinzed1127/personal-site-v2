@@ -1,4 +1,4 @@
 {
-  "layout": "base.liquid",
+  "layout": "post.liquid",
   "permalink": "/posts/{{ title | slugify }}/"
 }
