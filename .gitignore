@@ -1,3 +1,7 @@
 pnpm-lock.yaml
 node_modules/
+
+# Eleventy build output directory
 _site
+
+.DS_Store
