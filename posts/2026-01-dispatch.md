@@ -1,0 +1,61 @@
+---
+tags: post
+title: "Regular Reflections #1"
+date: '2026-01-04'
+---
+
+It took me all of a few months to question my goal of a monthly update cadence. More suprising to me, though, is opting to post *more* often instead of less. Inspired in part by [Jenn Schiffer's blog](https://livelaugh.blog/), where she did weekly retro posts for most of 2025, I'm going to coin my initial stab at this style of post "Regular Reflections", with the rationale that:
+
+- Retro reminds me too much of work.
+- I'm always looking to alliterate.
+- Calling them "regular" gets me out of a strict weekly cadence, even though that'll be the goal.
+
+Turns out more happens in a month than I initially thought. Attempting to document highlights as I go along is great in theory, but in practice, I ultimately forget a lot. Writing weekly is frequent enough to that more things things stay top of mind, allowing these posts to function as a journal that catches most of the notable things wihtout being too monotonous.
+
+
+
+Let's get into it.
+
+
+
+### Highlights
+
+My week started on a beach and ended in slushy snow. The week between Christmas and New Year's, I found myself in Puerto Rico for the first time. As an adult, unless I've been visiting friends, I've always preferred to have a "get out and do things" mindset towards vacations. Between the end of year holiday lull and actually craving more legimate rest, this was the first time that a true beach vacation actually sounded appealing, and that's bascially what I did, alternating between reading, floating in the ocean, and taking long barefoot walks on the beach.
+
+![Sunset on the beach in San Juan](/images/posts/san-juan-sunset.jpeg)
+
+ I read all of *[Hamnet](https://bookshop.org/p/books/hamnet-maggie-o-farrell/d8af232bf0b72169)*, which has beatiful prose throughout. I'll probably watch the movie adaptation in the build-up to awards season. With so much of the plot based on its characters' interior worlds, I'm curious how it translates to the screen.
+
+Outside of beach time, we spent a few days going into Old San Juan, the oldest Puerto Rican settlement, with its roots in 16th century Spanish colonialism. As a result of that history (and all of the connotations that come with it), the area has similar architecture to European cities of that time. If you were just dropped into Old San Juan with no context, you'd think you were somewhere in Spain.
+
+![Cobblestone street in the Old San Juan neighborhood](/images/posts/old-san-juan.jpeg)
+
+While the length of the stay was dictated more by previous plans (a wedding) and the most reasonable airfare prices, it ended up feeling just right, and a return to 6 inches of snow and bitterly cold Minnesota temperatures was actually pretty welcome. Also, with the [U.S. essentially abducting Venezuela's president](https://www.ft.com/content/46ee8a0f-d421-4f7d-9514-297a576ec346) just a few days later, we narrowly avoided getting stuck there, with the FAA closing airspace over the Caribbean.
+
+---
+
+New Year's Day 2025 was spent watching [*The Substance*](https://letterboxd.com/film/the-substance/). In keeping with a vaguely similar vibe, we watched [*If I Had Legs I'd Kick You*](https://letterboxd.com/film/if-i-had-legs-id-kick-you/) on New Year's Eve. My favorite pithy Letterboxd review described it as "*Uncut Gems* for mothers", which seems appropriate for a story mostly propelled by a neverending build-up of stress. I'm not sure if the ending totally worked for me, but I got what it was going for. The sound editing of this was phenomenal, really adding to the overall sense of anxiety.
+
+---
+
+With my vacation wrapping up on Monday and Tuesday, and New Year's day (Thursday) being a work holiday, the rest of the week felt fragmented and disjointed. Not much "real work", was done, but looking back, I managed to make some good headway on more personal goals and interests over the week:
+
+- [This site has an RSS feed now!](https://danhinze.com/feed.xml). While I hope things look nice and pleasant to read here, I'd to make sure that other methods of reading it are as frictionless as possible. I wanted to utilize Buttondown or some other newsletter service with RSS-to-email automations, but I don't think there's a good free option with those features. Rolling my own service seems relatively feasible with a small database and Amazon's [Simple Email Service](https://aws.amazon.com/ses/), so that might be a tiny side project I take up in the coming months.
+
+- I try not to take stock in any resolutions too seriously at the start of a new year, but it's always a good time to reflect on what I might aspire to change. For me, that usually involves learning or improving a skill that requires doing something tangible with my hands. The three options I've honed in on are ceramics, sailing (Minneapolis' nickname is "City of Lakes", after all), and woodworking. Giving that we're in the dead of winter, ceramics seems like the most viable to take up in the near future, but I'm trying to stay on top of the others so I don't miss sign-up windows, which has bit me in years' past.
+
+- Seeing (and feeling mostly indifferent to) [*Jay Kelly*](https://letterboxd.com/film/jay-kelly/) a few weeks ago made made me want to go on a little tour of Noah Baumbach and George Clooney's more heralded films. What I've watched so far: 
+  - [*Michael Clayton*](https://letterboxd.com/film/frances-ha/) one evening in Puerto Rico. Really gripping for a movie that's almost entirely driven by dialogue. Tilda Swinton won an Oscar for super minimal screen time and she totally deserves it. In a present-day where it feels like everything is getting enshittified or more expensive due to shareholders, private equity, or other late stage capitalism reasons, the banal evil of what her character represents feels even more familiar now.
+  - [*Frances Ha*](https://letterboxd.com/film/frances-ha/) on the plane back. I had split feelings on this, but the back half won me over. The main character is 27, which makes me wonder if I'm a little late in fully appreciating the plot, which is less of a cohesive narrative and more just capturing the "what the fuck am I doing" vibes of figuring things out in your 20s. It'll be nice to watch this again with a little more distance.
+  - A rewatch of [*Ocean's 11*](https://letterboxd.com/film/oceans-eleven-2001/) over the weekend. While it's very much a film about men doing things (the only meaningful female characters are Julia Roberts in a pretty shallow role and a stripper whose 30 seconds serves to advance a minor plot point), it's undeniably slick. Not a single shot is wasted, the pacing phenomenal throughout. While the MCU and other similar blockbusters don't do much for me, I don't begrudge people that are into them; I just wish that those weren't the *only* blockbusters getting made anymore. I want more of this.
+  
+- 2025 felt like a particularly strong year in new music releases for me ([covered more in depth previously](https://danhinze.com/posts/favorite-music-of-2025/)). However, between recovering from a second hip surgery and other nascent interests like gardening, I really fell off in any time spent personally creating music. After multiple years of saying that I should actually try to write music again, this is the first time in a while that I think I really *want* to. Ironically, the same reason I was avoiding it is the primary argument for why I should be getting back into it: the friction and discomfort of not knowing what I'm doing. As I mentioned [previously](https://danhinze.com/posts/update-1-workiversary-and-winter/):
+  
+  > I immersed myself in straight-ahead jazz from high school up through my first few years out of college. There's a lot of of different reasons why that's no longer the case, but at least some of it is some boredom with a sound that no longer feels fresh and exciting to me.
+  
+  This is a bit of a cop out, though. There are plenty of sounds that *are* fresh and exciting to me; they're just not sounds that I already know how to make. What I've actuallly been avoiding is the frustration of time of figuring things out in a DAW, the initial confusion of messing around with pedals I've bought and have subsequently let gather dust, the accumulated rust to shake off in exploring ideas on a piano again, etc. But just like that first workout in a while, that initial discomfort is necessary. [The best way out is always through](https://thepoetryhour.com/poems/a-servant-to-servants/). While I've only got a few small sketches of some ideas, it's more than I've had in a while. For now, I'll take it.
+  
+- Throughout college and for a few years after, I was a dedicated user of Moleskine's weekly planners. They hit hit the sweet spot for me withenough structure to track things, but enough freeform space to jot things down as needed. The trick for me is the freeform sections coexist alongside each week, allowing for natural chronological organization of different thoughts and ideas. I never really stopped jotting things down, but was relying on scraps of paper that would ultimately get tossed and with it, any stray memories or ideas attached to them. My hope in returning to a planner is better tracking of those sorts of things over time, and hopefully retaining more of what's worth retaining, too.
+  
+- Made a good dent into reading [*Martyr!*](https://bookshop.org/p/books/martyr-a-novel-kaveh-akbar/69276aba766162ab). It's been a while since I've enjoyed the actual story of a book as much as the prose. I'm looking forward to finishing it soon. Another aspiration for this year: less scrolling of screens and more turning of physical pages. I'd like to be more intentional in where I give my attentio, and books portend to aide in that immensely.
+
