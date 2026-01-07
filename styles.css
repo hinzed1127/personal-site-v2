@@ -59,7 +59,7 @@ body {
   max-width: min(45em, 96vw);
   border-radius: 4px;
   margin: 0 auto;
-  padding: 0 1em;
+  padding: 0 1.5em;
   background: #dbf9ff;
   /*slightly less blue*/
   background: #dffaff;
@@ -125,6 +125,27 @@ article h2 {
 article h3,
 article h4 {
   margin: 10px 0;
+}
+
+.header-wrapper {
+  position: relative;
+}
+
+.header-wrapper .header-anchor {
+  position: absolute;
+  left: -1.25em;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  text-decoration: none;
+  color: var(--gray);
+  padding-right: 0.5em;
+}
+
+.header-wrapper:hover .header-anchor,
+.header-wrapper .header-anchor:focus {
+  opacity: 1;
 }
 
 article {

@@ -1,5 +1,6 @@
 import markdownItLinkAttributes from "markdown-it-link-attributes";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import anchor from "markdown-it-anchor";
 import feedPlugin from "@11ty/eleventy-plugin-rss";
 
 export default function (config) {
@@ -16,6 +17,17 @@ export default function (config) {
     },
   };
   config.amendLibrary("md", mdLib => mdLib.use(markdownItLinkAttributes, markdownItLinkAttributesOptions));
+  config.amendLibrary("md", mdLib =>
+    mdLib.use(anchor, {
+      permalink: anchor.permalink.linkAfterHeader({
+        class: "header-anchor",
+        symbol: "🔗",
+        style: "aria-label",
+        assistiveText: title => `Permalink to "${title}" heading`,
+        wrapper: ['<div class="header-wrapper">', "</div>"],
+      }),
+    })
+  );
 
   config.addPlugin(eleventyImageTransformPlugin);
 
