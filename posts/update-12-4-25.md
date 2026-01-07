@@ -18,7 +18,7 @@ One year in, I have few qualms. I've got great colleagues, I've gotten to dabble
 ## Listening
 
 It's been a really great year of new music for me. I've yet to reflect on the year as a whole, but in the meantime, here's a few recent releases I've really enjoyed:
-### Aaron Parks - [*By All Means*](https://open.qobuz.com/album/by0ba50eyhnfc).
+### Aaron Parks - [*By All Means*](https://open.qobuz.com/album/by0ba50eyhnfc)
 
 I immersed myself in straight-ahead jazz from high school up through my first few years out of college. There's a lot of of different reasons why that's no longer the case, but at least some of it is some boredom with a sound that no longer feels fresh and exciting to me. Since then, there's been occasional musicians that have still drawn me in (Immanuel Wilkins is probably the most relevant example), but on the whole, it's a genre (sub-genre?) that's felt limiting to me. I think that's why I found this quote from Aaron's [brief essay about the album](https://aparksmusic.substack.com/p/by-all-means) really clarifying (bolding mine):
 
