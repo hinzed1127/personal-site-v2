@@ -20,6 +20,13 @@ After starting out my career in a few SaaS companies, a desire for something mor
 A few personal things:
 
 - I live in Minneapolis with my wife and two dogs.
+
+![My dogs, Livy and Scott](/images/about/dogs-pic.jpeg)
+
 - In the last five years or so, running has become a larger hobby, both for personal enjoyment as well as [a way to engage with my community](https://www.mileinmyshoes.mn/). I've been on the long and winding path recovering from a few injuries, but I continue to work towards getting back to running long distances.
 - In the past, I've [written and performed music](https://fayray.bandcamp.com/album/no-love-ep). While my musical tastes and interests have evolved, I remain most captivated by weirder sounds rooted in improvisation, with various minimalism, ambient, drone, and electronic music catching my ears more in recent years. Any and all recommendations are welcome.
+
+## Contact
+
+Email: [hello@danhinze.com](mailto:hello@danhinze.com)
 
