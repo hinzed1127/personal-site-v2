@@ -3,7 +3,7 @@
 ## To-dos
 - [x] Add [cloudflare email routing](https://www.cloudflare.com/developer-platform/products/email-routing/) and a site email (e.g. hello@danhinze.com)
 - [ ] Add approved comments in the vein of [this](https://pketh.org/blog-comments.html)
-- [ ] Add anchor links for individual page headings via [markdown-it-anchor](https://github.com/valeriangalliat/markdown-it-anchor)
+- [x] Add anchor links for individual page headings via [markdown-it-anchor](https://github.com/valeriangalliat/markdown-it-anchor)
 - [ ] Once there's a larger amount of posts that belong to different categories:
   - [ ] Add tagging to posts
   - [ ] Enable filtering by tags on posts
@@ -22,6 +22,7 @@
   - [ ] add `/links`/ page once format and mechanism is determined
 - [x] Add RSS feed for posts
   - [ ] ~~Integrate with Buttondown via~~ Roll my own RSS-to-email service
+- [ ] Add "previous post" and "next post" links to the bottom of the posts page
 
 ## Optional to-dos I haven't decided if I want yet
 - [ ] Add more bite-sized feed a la MacWright "micro" page or thesephist stream, etc
