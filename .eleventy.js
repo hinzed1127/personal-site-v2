@@ -32,4 +32,18 @@ export default function (config) {
   config.addPlugin(eleventyImageTransformPlugin);
 
   config.addPlugin(feedPlugin);
+
+  // Filter to strip anchor links from RSS feed
+  config.addFilter("stripAnchorLinks", content => {
+    if (!content) return content;
+
+    return (
+      content
+        // Remove anchor link elements with the 🔗 emoji
+        .replace(/<a class="header-anchor"[^>]*>.*?<\/a>/g, "")
+        // Remove header-wrapper divs but keep their content
+        .replace(/<div class="header-wrapper">\s*/g, "")
+        .replace(/\s*<\/div>/g, "")
+    );
+  });
 }

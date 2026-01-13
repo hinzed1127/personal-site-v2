@@ -19,7 +19,7 @@ eleventyExcludeFromCollections: true
     <link href="{{ metadata.url }}{{ post.url }}"/>
     <updated>{{ post.date | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
     <id>{{ metadata.url }}{{ post.url }}</id>
-    <content type="html"><![CDATA[{{ post.content }}]]></content>
+    <content type="html"><![CDATA[{{ post.content | stripAnchorLinks }}]]></content>
   </entry>
   {%- endfor %}
 </feed>
