@@ -29,11 +29,11 @@ layout: base.liquid
 
 {% if previous_post or next_post %}
 <nav class="post-navigation">
-  {% if previous_post %}
-    <div><span>Previous Post: </span><a href="{{ previous_post.url }}" rel="prev">{{ previous_post.data.title }}</a><div>
-  {% endif %}
   {% if next_post %}
     <div><span>Next Post: </span><a href="{{ next_post.url }}" rel="next">{{ next_post.data.title }}</a><div>
+  {% endif %}
+  {% if previous_post %}
+    <div><span>Previous Post: </span><a href="{{ previous_post.url }}" rel="prev">{{ previous_post.data.title }}</a><div>
   {% endif %}
 </nav>
 {% endif %}  
