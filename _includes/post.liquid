@@ -5,3 +5,35 @@ layout: base.liquid
 <p>{{ date | date: '%b %d, %Y', 'utc' }}</p>
 
 {{ content }}
+
+{% assign sorted_posts = collections.post | sort: 'data.date' | reverse %}
+
+{% for post in sorted_posts %}
+  {% if post.url == page.url %}
+    {% assign current_index = forloop.index0 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign previous_index = current_index | plus: 1 %}
+{% assign next_index = current_index | minus: 1 %}
+{% assign total_posts = sorted_posts | size %}
+
+{% if previous_index < total_posts %}
+  {% assign previous_post = sorted_posts[previous_index] %}
+{% endif %}
+
+{% if next_index >= 0 %}
+  {% assign next_post = sorted_posts[next_index] %}
+{% endif %}
+
+{% if previous_post or next_post %}
+<nav class="post-navigation">
+  {% if previous_post %}
+    <div><span>Previous Post: </span><a href="{{ previous_post.url }}" rel="prev">{{ previous_post.data.title }}</a><div>
+  {% endif %}
+  {% if next_post %}
+    <div><span>Next Post: </span><a href="{{ next_post.url }}" rel="next">{{ next_post.data.title }}</a><div>
+  {% endif %}
+</nav>
+{% endif %}  
