@@ -1,7 +1,9 @@
 ---
-tags: post
-title: "Favorite music of 2025"
-date: '2026-01-02'
+tags:
+  - post
+  - music
+title: Favorite music of 2025
+date: 2026-01-02
 ---
 
 One thing I've struggled with in the streaming age is having a much more fragmented sense of the art I've consumed, even when it's art I've enjoyed immensely. It just doesn't seem to have the same stickiness. As such, I've relied on things such as Last.fm scrobbles to get a handle on what I've listened to the most this year. This turned out to be even more helpful than before. Since leaving Spotify for Qobuz, Last.fm's data reporting has been a great substitute for Spotify's wrapped feature. On top of Last.fm integrating with most streaming services, there are also [lots](https://micropixels.software/apps/neptunes) of [tools](https://webscrobbler.com/) for tracking other places I'm regularly playing music. For what I care to track, this mostly ends up being Bandcamp's web player and ~~iTunes~~ local files played in the Apple Music desktop app. I took a first stab at my favorites of the year from memory, and if we're going purely by number of plays, it lined up pretty well with what I thought they were! Part of that was probably helped by recency bias, since my top 3 albums were all released in the final quarter of the year.
