@@ -8,12 +8,12 @@ eleventyExcludeFromCollections: true
   <subtitle>{{ metadata.subtitle }}</subtitle>
   <link href="{{ metadata.url }}/feed.xml" rel="self"/>
   <link href="{{ metadata.url }}"/>
-  <updated>{{ collections.post[0].date | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
+  <updated>{{ collections.posts[0].date | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
   <id>{{ metadata.url }}</id>
   <author>
     <name>{{ metadata.author.name }}</name>
   </author>
-  {%- for post in collections.post reversed %}
+  {%- for post in collections.posts reversed %}
   <entry>
     <title>{{ post.data.title }}</title>
     <link href="{{ metadata.url }}{{ post.url }}"/>

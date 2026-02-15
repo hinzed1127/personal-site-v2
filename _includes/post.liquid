@@ -1,12 +1,12 @@
 ---
 layout: base.liquid
 ---
-<h2>{{ title }}</h2>
+<h2>{{ title }}{% if isDev and draft %} <span class="draft-label">[DRAFT]</span>{% endif %}</h2>
 <p>{{ date | date: '%b %d, %Y', 'utc' }}</p>
 
 {{ content }}
 
-{% assign sorted_posts = collections.post | sort: 'data.date' | reverse %}
+{% assign sorted_posts = collections.posts | sort: 'data.date' | reverse %}
 
 {% for post in sorted_posts %}
   {% if post.url == page.url %}
@@ -36,4 +36,4 @@ layout: base.liquid
     <div><span>Previous Post: </span><a href="{{ previous_post.url }}" rel="prev">{{ previous_post.data.title }}</a><div>
   {% endif %}
 </nav>
-{% endif %}  
+{% endif %}
