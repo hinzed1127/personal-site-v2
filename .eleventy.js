@@ -14,6 +14,15 @@ export default function (config) {
     });
   });
 
+  config.addGlobalData("eleventyComputed", {
+    permalink: (data) => {
+      if (isProduction && data.draft) {
+        return false;
+      }
+      return data.permalink;
+    },
+  });
+
   config.addPassthroughCopy("styles.css");
   config.addPassthroughCopy("images");
 
