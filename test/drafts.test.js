@@ -85,6 +85,13 @@ describe("draft posts", () => {
     expect(draftPost.content).toContain("[DRAFT]");
   });
 
+  it("excludes draft posts from homepage in production", async () => {
+    const results = await build("production");
+    const homepage = findByUrl(results, "/");
+    expect(homepage).toBeDefined();
+    expect(homepage.content).not.toContain("Regular Reflections #3");
+  });
+
   it("does not show [DRAFT] label on non-draft post pages in dev", async () => {
     const results = await build("");
     const nonDraftPosts = results.filter(
