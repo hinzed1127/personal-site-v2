@@ -4,6 +4,16 @@ import anchor from "markdown-it-anchor";
 import feedPlugin from "@11ty/eleventy-plugin-rss";
 
 export default function (config) {
+  const isProduction = process.env.ELEVENTY_ENV === "production";
+
+  config.addGlobalData("isDev", !isProduction);
+
+  config.addCollection("posts", (collectionApi) => {
+    return collectionApi.getFilteredByTag("post").filter((post) => {
+      return isProduction ? !post.data.draft : true;
+    });
+  });
+
   config.addPassthroughCopy("styles.css");
   config.addPassthroughCopy("images");
 
