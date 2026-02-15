@@ -7,7 +7,7 @@
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +19,8 @@
     "@11ty/eleventy-plugin-rss": "^2.0.4",
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-link-attributes": "^4.0.1"
+  },
+  "devDependencies": {
+    "vitest": "^4.0.18"
   }
 }
