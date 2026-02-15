@@ -207,3 +207,9 @@ ul.posts-list {
 .post-navigation span {
   font-weight: bold;
 }
+
+.draft-label {
+  color: #b91c1c;
+  font-weight: 700;
+  font-size: 0.85em;
+}
