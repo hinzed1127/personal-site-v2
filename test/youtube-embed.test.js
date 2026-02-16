@@ -65,6 +65,36 @@ describe("youtube embed", () => {
     });
   });
 
+  describe("transform", () => {
+    it("injects lite-yt-embed.css on pages with youtube embeds", async () => {
+      const results = await build();
+      const post = findByUrl(
+        results,
+        "/posts/regular-reflections-3-a-terrible-horrible-no-good-very-bad-month/"
+      );
+      expect(post.content).toContain(
+        '<link rel="stylesheet" href="/vendor/lite-yt-embed.css">'
+      );
+    });
+
+    it("injects lite-yt-embed.js on pages with youtube embeds", async () => {
+      const results = await build();
+      const post = findByUrl(
+        results,
+        "/posts/regular-reflections-3-a-terrible-horrible-no-good-very-bad-month/"
+      );
+      expect(post.content).toContain(
+        '<script defer src="/vendor/lite-yt-embed.js"></script>'
+      );
+    });
+
+    it("does not inject assets on pages without youtube embeds", async () => {
+      const results = await build();
+      const aboutPage = findByUrl(results, "/about/");
+      expect(aboutPage.content).not.toContain("lite-yt-embed");
+    });
+  });
+
   describe("shortcode", () => {
     it("renders a lite-youtube element with the given video ID", async () => {
       const results = await build();
