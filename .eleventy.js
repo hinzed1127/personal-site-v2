@@ -30,6 +30,14 @@ export default function (config) {
     "node_modules/lite-youtube-embed/src/lite-yt-embed.js": "vendor/lite-yt-embed.js",
   });
 
+  config.addShortcode("youtube", (videoId) => {
+    return `<lite-youtube videoid="${videoId}">
+  <a href="https://youtube.com/watch?v=${videoId}" class="lyt-playbtn" title="Play Video">
+    <span class="lyt-visually-hidden">Play Video</span>
+  </a>
+</lite-youtube>`;
+  });
+
   const markdownItLinkAttributesOptions = {
     matcher(href) {
       return href.match(/^https?:\/\//);

@@ -24,6 +24,26 @@ async function buildToFilesystem(env = "") {
   }
 }
 
+async function build(env = "") {
+  const prevEnv = process.env.ELEVENTY_ENV;
+  process.env.ELEVENTY_ENV = env;
+  try {
+    const elev = new Eleventy("./", "./_site", { quietMode: true });
+    const results = await elev.toJSON();
+    return results;
+  } finally {
+    if (prevEnv === undefined) {
+      delete process.env.ELEVENTY_ENV;
+    } else {
+      process.env.ELEVENTY_ENV = prevEnv;
+    }
+  }
+}
+
+function findByUrl(results, url) {
+  return results.find((r) => r.url === url);
+}
+
 describe("youtube embed", () => {
   describe("vendor assets", () => {
     beforeAll(async () => {
@@ -42,6 +62,29 @@ describe("youtube embed", () => {
     it("copies lite-yt-embed.js to /vendor/", () => {
       const jsPath = path.join(outputDir, "vendor", "lite-yt-embed.js");
       expect(fs.existsSync(jsPath)).toBe(true);
+    });
+  });
+
+  describe("shortcode", () => {
+    it("renders a lite-youtube element with the given video ID", async () => {
+      const results = await build();
+      const post = findByUrl(
+        results,
+        "/posts/regular-reflections-3-a-terrible-horrible-no-good-very-bad-month/"
+      );
+      expect(post.content).toContain('<lite-youtube videoid="DfTBhrkae74">');
+    });
+
+    it("includes a fallback play button link", async () => {
+      const results = await build();
+      const post = findByUrl(
+        results,
+        "/posts/regular-reflections-3-a-terrible-horrible-no-good-very-bad-month/"
+      );
+      expect(post.content).toContain(
+        'href="https://youtube.com/watch?v=DfTBhrkae74"'
+      );
+      expect(post.content).toContain('class="lyt-playbtn"');
     });
   });
 });
