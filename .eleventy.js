@@ -25,6 +25,10 @@ export default function (config) {
 
   config.addPassthroughCopy("styles.css");
   config.addPassthroughCopy("images");
+  config.addPassthroughCopy({
+    "node_modules/lite-youtube-embed/src/lite-yt-embed.css": "vendor/lite-yt-embed.css",
+    "node_modules/lite-youtube-embed/src/lite-yt-embed.js": "vendor/lite-yt-embed.js",
+  });
 
   const markdownItLinkAttributesOptions = {
     matcher(href) {
