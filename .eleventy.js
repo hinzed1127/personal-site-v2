@@ -38,6 +38,22 @@ export default function (config) {
 </lite-youtube>`;
   });
 
+  config.addTransform("youtube-assets", (content, outputPath) => {
+    if (typeof outputPath !== "string" || !outputPath.endsWith(".html")) return content;
+    if (!content.includes("<lite-youtube")) return content;
+
+    content = content.replace(
+      "</head>",
+      `  <link rel="stylesheet" href="/vendor/lite-yt-embed.css">\n</head>`
+    );
+    content = content.replace(
+      "</body>",
+      `  <script defer src="/vendor/lite-yt-embed.js"></script>\n</body>`
+    );
+
+    return content;
+  });
+
   const markdownItLinkAttributesOptions = {
     matcher(href) {
       return href.match(/^https?:\/\//);
