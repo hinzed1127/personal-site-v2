@@ -38,5 +38,14 @@ export function groupPhotoStacks(content, outputPath) {
   }
   flushGroup();
 
-  return result.join("\n");
+  let output = result.join("\n");
+
+  if (output.includes("photo-stack")) {
+    output = output.replace(
+      "</body>",
+      `  <script defer src="/vendor/photo-stack.js"></script>\n</body>`
+    );
+  }
+
+  return output;
 }
