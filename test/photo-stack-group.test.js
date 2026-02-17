@@ -69,6 +69,18 @@ describe("groupPhotoStacks", () => {
     expect(stackCount).toBe(2);
   });
 
+  it("handles multiple pictures inside a single paragraph", () => {
+    const input = `<p>${pic("one")}\n${pic("two")}\n${pic("three")}</p>`;
+    const result = groupPhotoStacks(input, "/posts/test/index.html");
+
+    expect(result).toContain('<div class="photo-stack">');
+    const itemCount = (result.match(/photo-stack-item/g) || []).length;
+    expect(itemCount).toBe(3);
+    expect(result).toContain('style="--i: 0"');
+    expect(result).toContain('style="--i: 1"');
+    expect(result).toContain('style="--i: 2"');
+  });
+
   it("handles whitespace between consecutive image paragraphs", () => {
     const input = `<p>${pic("one")}</p>\n\n<p>${pic("two")}</p>`;
     const result = groupPhotoStacks(input, "/posts/test/index.html");
