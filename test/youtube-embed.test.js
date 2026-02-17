@@ -95,6 +95,23 @@ describe("youtube embed", () => {
     });
   });
 
+  describe("RSS feed", () => {
+    it("replaces lite-youtube elements with plain YouTube links in the feed", async () => {
+      const results = await build();
+      const feed = findByUrl(results, "/feed.xml");
+      expect(feed.content).not.toContain("<lite-youtube");
+      expect(feed.content).toContain(
+        'https://youtube.com/watch?v=DfTBhrkae74'
+      );
+    });
+
+    it("does not include lite-youtube-embed assets in the feed", async () => {
+      const results = await build();
+      const feed = findByUrl(results, "/feed.xml");
+      expect(feed.content).not.toContain("lite-yt-embed");
+    });
+  });
+
   describe("shortcode", () => {
     it("renders a lite-youtube element with the given video ID", async () => {
       const results = await build();

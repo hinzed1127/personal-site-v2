@@ -80,6 +80,15 @@ export default function (config) {
 
   config.addPlugin(feedPlugin);
 
+  // Filter to replace lite-youtube embeds with plain links for RSS feed
+  config.addFilter("youtubeToLinks", content => {
+    if (!content) return content;
+    return content.replace(
+      /<lite-youtube videoid="([^"]+)"[\s\S]*?<\/lite-youtube>/g,
+      '<p><a href="https://youtube.com/watch?v=$1">Watch on YouTube</a></p>'
+    );
+  });
+
   // Filter to strip anchor links from RSS feed
   config.addFilter("stripAnchorLinks", content => {
     if (!content) return content;
