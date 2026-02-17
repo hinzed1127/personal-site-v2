@@ -74,6 +74,20 @@ describe("groupPhotoStacks", () => {
     const result = groupPhotoStacks(input, "/posts/test/index.html");
     expect(result).toContain('<div class="photo-stack">');
   });
+
+  describe("JS injection", () => {
+    it("injects photo-stack.js script tag when photo-stack markup is present", () => {
+      const input = `<html>\n<body>\n<p>${pic()}</p>\n</body>\n</html>`;
+      const result = groupPhotoStacks(input, "/posts/test/index.html");
+      expect(result).toContain('<script defer src="/vendor/photo-stack.js"></script>');
+    });
+
+    it("does not inject script when no photo-stack markup exists", () => {
+      const input = `<html>\n<body>\n<p>No images here</p>\n</body>\n</html>`;
+      const result = groupPhotoStacks(input, "/posts/test/index.html");
+      expect(result).not.toContain("photo-stack.js");
+    });
+  });
 });
 
 // Helper to build site in-memory

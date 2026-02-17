@@ -30,6 +30,7 @@ export default function (config) {
     "node_modules/lite-youtube-embed/src/lite-yt-embed.css": "vendor/lite-yt-embed.css",
     "node_modules/lite-youtube-embed/src/lite-yt-embed.js": "vendor/lite-yt-embed.js",
   });
+  config.addPassthroughCopy({ "photo-stack.js": "vendor/photo-stack.js" });
 
   config.addShortcode("youtube", (videoId) => {
     return `<lite-youtube videoid="${videoId}">
