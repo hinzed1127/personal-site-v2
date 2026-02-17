@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import Eleventy from "@11ty/eleventy";
 import { groupPhotoStacks } from "../transforms/photo-stack-group.js";
 
 describe("groupPhotoStacks", () => {
@@ -72,5 +73,34 @@ describe("groupPhotoStacks", () => {
     const input = `<p>${pic("one")}</p>\n\n<p>${pic("two")}</p>`;
     const result = groupPhotoStacks(input, "/posts/test/index.html");
     expect(result).toContain('<div class="photo-stack">');
+  });
+});
+
+// Helper to build site in-memory
+async function build() {
+  const elev = new Eleventy("./", "./_site", { quietMode: true });
+  return await elev.toJSON();
+}
+
+function findByUrl(results, url) {
+  return results.find((r) => r.url === url);
+}
+
+describe("photo-stack Eleventy integration", () => {
+  it("does not inject photo-stack markup on pages without images", async () => {
+    const results = await build();
+    const postsIndex = findByUrl(results, "/posts/");
+    expect(postsIndex.content).not.toContain("photo-stack");
+  });
+
+  it("wraps post images in photo-stack markup", async () => {
+    const results = await build();
+    // Find any post that has images
+    const postWithImages = results.find(
+      (r) => r.url?.startsWith("/posts/") && r.url !== "/posts/" && r.content?.includes("<picture")
+    );
+    if (postWithImages) {
+      expect(postWithImages.content).toContain("photo-stack");
+    }
   });
 });
