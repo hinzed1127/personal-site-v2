@@ -2,6 +2,7 @@ import markdownItLinkAttributes from "markdown-it-link-attributes";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import anchor from "markdown-it-anchor";
 import feedPlugin from "@11ty/eleventy-plugin-rss";
+import { groupPhotoStacks } from "./transforms/photo-stack-group.js";
 
 export default function (config) {
   const isProduction = process.env.ELEVENTY_ENV === "production";
@@ -53,6 +54,8 @@ export default function (config) {
 
     return content;
   });
+
+  config.addTransform("photo-stack-group", groupPhotoStacks);
 
   const markdownItLinkAttributesOptions = {
     matcher(href) {
