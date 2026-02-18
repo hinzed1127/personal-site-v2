@@ -23,12 +23,14 @@ export function groupPhotoStacks(content, outputPath) {
   let pendingBlock = null;
 
   function flushGroup() {
-    if (group.length >= 1) {
+    if (group.length >= 2) {
       result.push('<div class="photo-stack">');
       group.forEach((pictureHtml, i) => {
         result.push(`<div class="photo-stack-item" style="--i: ${i}">${pictureHtml}</div>`);
       });
       result.push("</div>");
+    } else if (group.length === 1) {
+      result.push(`<p>${group[0]}</p>`);
     }
     group = [];
   }

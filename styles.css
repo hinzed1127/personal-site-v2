@@ -147,6 +147,9 @@ article img {
   width: auto;
   height: auto;
   margin: 0 auto;
+  background: #fffef8;
+  padding: 12px 12px 14px;
+  box-shadow: 1px 1px 4px hsl(var(--shadow-color) / 0.2);
 }
 
 .photo-stack {
@@ -183,12 +186,6 @@ article img {
 }
 .photo-stack-item:nth-child(4) {
   transform: rotate(10deg) translate(-35px, 35px);
-}
-
-.photo-stack-item:only-child {
-  position: relative;
-  transform: none;
-  cursor: default;
 }
 
 .photo-stack-item.on-top {

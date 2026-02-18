@@ -33,13 +33,12 @@ describe("groupPhotoStacks", () => {
     expect(result).toContain('style="--i: 2"');
   });
 
-  it("wraps a single image paragraph in a photo-stack container", () => {
+  it("does not wrap a single image paragraph in a photo-stack container", () => {
     const input = `<p>Some text</p>\n<p>${pic()}</p>\n<p>More text</p>`;
     const result = groupPhotoStacks(input, "/posts/test/index.html");
 
-    expect(result).toContain('<div class="photo-stack">');
-    const itemCount = (result.match(/photo-stack-item/g) || []).length;
-    expect(itemCount).toBe(1);
+    expect(result).not.toContain("photo-stack");
+    expect(result).toContain("<p>");
   });
 
   it("returns content unchanged for non-HTML files", () => {
@@ -89,7 +88,7 @@ describe("groupPhotoStacks", () => {
 
   describe("JS injection", () => {
     it("injects photo-stack.js script tag when photo-stack markup is present", () => {
-      const input = `<html>\n<body>\n<p>${pic()}</p>\n</body>\n</html>`;
+      const input = `<html>\n<body>\n<p>${pic("one")}</p>\n<p>${pic("two")}</p>\n</body>\n</html>`;
       const result = groupPhotoStacks(input, "/posts/test/index.html");
       expect(result).toContain('<script defer src="/vendor/photo-stack.js"></script>');
     });
@@ -119,14 +118,15 @@ describe("photo-stack Eleventy integration", () => {
     expect(postsIndex.content).not.toContain("photo-stack");
   });
 
-  it("wraps post images in photo-stack markup", async () => {
+  it("does not wrap standalone images in photo-stack markup", async () => {
     const results = await build();
-    // Find any post that has images
-    const postWithImages = results.find(
+    // Posts with only single images should not have photo-stack markup
+    const postWithSingleImage = results.find(
       (r) => r.url?.startsWith("/posts/") && r.url !== "/posts/" && r.content?.includes("<picture")
     );
-    if (postWithImages) {
-      expect(postWithImages.content).toContain("photo-stack");
+    if (postWithSingleImage) {
+      // Single images stay in <p> tags, not photo-stacks
+      expect(postWithSingleImage.content).toContain("<p><picture");
     }
   });
 });
