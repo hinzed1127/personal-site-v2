@@ -154,8 +154,8 @@ article img {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 350px;
-  margin: 1.5rem 0;
+  min-height: 600px; /* TODO: figure out how to dynamically make this fit according to size of photo-stack-items */
+  margin: 4rem 0;
   padding: 2rem;
 }
 
@@ -165,16 +165,25 @@ article img {
   padding: 12px 12px 14px;
   box-shadow: 1px 1px 4px hsl(var(--shadow-color) / 0.2);
   cursor: pointer;
-  transition: transform 0.25s ease, z-index 0s;
+  transition:
+    transform 0.25s ease,
+    z-index 0s;
   z-index: calc(var(--i));
   max-width: 70%;
 }
 
-.photo-stack-item:nth-child(1) { transform: rotate(-2.5deg); }
-.photo-stack-item:nth-child(2) { transform: rotate(1.5deg); }
-.photo-stack-item:nth-child(3) { transform: rotate(-1deg) translate(5px, -3px); }
-.photo-stack-item:nth-child(4) { transform: rotate(2.5deg) translate(-3px, 2px); }
-.photo-stack-item:nth-child(5) { transform: rotate(-0.5deg) translate(8px, 5px); }
+.photo-stack-item:nth-child(1) {
+  transform: rotate(-15deg) translate(-50px, -20px);
+}
+.photo-stack-item:nth-child(2) {
+  transform: rotate(10deg) translate(40px, -50px);
+}
+.photo-stack-item:nth-child(3) {
+  transform: rotate(-10deg) translate(-85px, 40px);
+}
+.photo-stack-item:nth-child(4) {
+  transform: rotate(10deg) translate(-35px, 35px);
+}
 
 .photo-stack-item:only-child {
   position: relative;
@@ -184,14 +193,12 @@ article img {
 
 .photo-stack-item.on-top {
   z-index: 100;
-  transform: rotate(0deg) translate(0, 0);
 }
 
 .photo-stack-item img {
   display: block;
   max-width: 100%;
   height: auto;
-  max-height: 400px;
 }
 
 @media (max-width: 600px) {
@@ -205,11 +212,21 @@ article img {
     padding: 8px 8px 10px;
   }
 
-  .photo-stack-item:nth-child(1) { transform: rotate(-1.5deg); }
-  .photo-stack-item:nth-child(2) { transform: rotate(1deg); }
-  .photo-stack-item:nth-child(3) { transform: rotate(-0.5deg) translate(3px, -2px); }
-  .photo-stack-item:nth-child(4) { transform: rotate(1.5deg) translate(-2px, 1px); }
-  .photo-stack-item:nth-child(5) { transform: rotate(-0.3deg) translate(4px, 3px); }
+  .photo-stack-item:nth-child(1) {
+    transform: rotate(-1.5deg);
+  }
+  .photo-stack-item:nth-child(2) {
+    transform: rotate(1deg);
+  }
+  .photo-stack-item:nth-child(3) {
+    transform: rotate(-0.5deg) translate(3px, -2px);
+  }
+  .photo-stack-item:nth-child(4) {
+    transform: rotate(1.5deg) translate(-2px, 1px);
+  }
+  .photo-stack-item:nth-child(5) {
+    transform: rotate(-0.3deg) translate(4px, 3px);
+  }
 }
 
 article p + p {
