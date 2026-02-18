@@ -152,6 +152,11 @@ article img {
   box-shadow: 1px 1px 4px hsl(var(--shadow-color) / 0.2);
 }
 
+/* Extra vertical spacing for post images that aren't in a stack */
+article img:not(.photo-stack img) {
+  margin: 25px auto;
+}
+
 .photo-stack {
   position: relative;
   display: flex;
