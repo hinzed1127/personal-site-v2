@@ -164,8 +164,6 @@ article img {
 
 .photo-stack-item {
   position: absolute;
-  background: #fffef8;
-  padding: 12px 12px 14px;
   box-shadow: 1px 1px 4px hsl(var(--shadow-color) / 0.2);
   cursor: pointer;
   transition:
