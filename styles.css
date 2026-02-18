@@ -203,29 +203,23 @@ article img:not(.photo-stack img) {
 
 @media (max-width: 600px) {
   .photo-stack {
-    min-height: 250px;
-    padding: 1rem;
+    position: static;
+    display: block;
+    min-height: auto;
+    padding: 0;
+    margin: 1.5rem 0;
   }
 
-  .photo-stack-item {
-    max-width: 85%;
-    padding: 8px 8px 10px;
+  .photo-stack-item,
+  .photo-stack-item:nth-child(n) {
+    position: static;
+    max-width: 100%;
+    margin: 1.5rem auto;
+    transform: none;
   }
 
-  .photo-stack-item:nth-child(1) {
-    transform: rotate(-1.5deg);
-  }
-  .photo-stack-item:nth-child(2) {
-    transform: rotate(1deg);
-  }
-  .photo-stack-item:nth-child(3) {
-    transform: rotate(-0.5deg) translate(3px, -2px);
-  }
-  .photo-stack-item:nth-child(4) {
-    transform: rotate(1.5deg) translate(-2px, 1px);
-  }
-  .photo-stack-item:nth-child(5) {
-    transform: rotate(-0.3deg) translate(4px, 3px);
+  .photo-stack-item.on-top {
+    z-index: auto;
   }
 }
 
