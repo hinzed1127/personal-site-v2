@@ -1,56 +1,74 @@
-:root {
-  --navy: #001f3f;
-  --midnight-blue: #03045e;
-  --sky-blue: #ade8f4;
-  --lavender: #ede9fe;
-  --pale-lavender: #f5f3ff;
-  --white: #ffffff;
-  --silver: #dddddd;
-  --gray: #aaaaaa;
-  --black: #000000;
+@layer global, composition, blocks, utilities;
 
-  --border-height: 15px;
+@layer global {
+  :root {
+    --navy: #001f3f;
+    --midnight-blue: #03045e;
+    --sky-blue: #ade8f4;
+    --lavender: #ede9fe;
+    --pale-lavender: #f5f3ff;
+    --white: #ffffff;
+    --silver: #dddddd;
+    --gray: #aaaaaa;
+    --black: #000000;
 
-  --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-optima: Optima, Candara, "Noto Sans", source-sans-pro, sans-serif;
+    --border-height: 15px;
 
-  --shadow-color: 240deg 100% 7%;
-  --shadow-elevation-medium:
-    0.7px 0.6px 1.1px hsl(var(--shadow-color) / 0.39), 2.8px 2.2px 4.2px -0.7px hsl(var(--shadow-color) / 0.42),
-    6.8px 5.4px 10.2px -1.5px hsl(var(--shadow-color) / 0.45),
-    16.3px 12.9px 24.3px -2.2px hsl(var(--shadow-color) / 0.47);
-}
+    --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-optima: Optima, Candara, "Noto Sans", source-sans-pro, sans-serif;
 
-html {
-  height: 100%;
-}
+    --shadow-color: 240deg 100% 7%;
+    --shadow-elevation-medium:
+      0.7px 0.6px 1.1px hsl(var(--shadow-color) / 0.39), 2.8px 2.2px 4.2px -0.7px hsl(var(--shadow-color) / 0.42),
+      6.8px 5.4px 10.2px -1.5px hsl(var(--shadow-color) / 0.45),
+      16.3px 12.9px 24.3px -2.2px hsl(var(--shadow-color) / 0.47);
+  }
 
-body {
-  min-height: 100vh;
+  html {
+    height: 100%;
+  }
+
+  html {
+    font-family: var(--font-optima);
+    background: var(--silver);
+    text-underline-offset: 2px;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  body {
+    background-color: var(--midnight-blue);
+    /* courtesy of https://heropatterns.com/ */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='charlie-brown' fill='%23ade8f4' fill-opacity='0.4'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  a {
+    color: var(--black);
+    text-decoration-skip-ink: auto;
+    text-decoration: underline;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  li {
+    margin: 0;
+  }
 }
 
 .container {
   min-height: calc(100vh - var(--border-height) * 2);
 }
 
-html {
-  font-family: var(--font-optima);
-  background: var(--silver);
-  text-underline-offset: 2px;
-}
-
-h1 {
-  font-size: 2rem;
-}
-
 .border {
   height: var(--border-height);
-}
-
-body {
-  background-color: var(--midnight-blue);
-  /* courtesy of https://heropatterns.com/ */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='charlie-brown' fill='%23ade8f4' fill-opacity='0.4'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .container {
@@ -62,12 +80,6 @@ body {
   border-left: 10px solid var(--lavender);
   border-right: 10px solid var(--lavender);
   box-shadow: var(--shadow-elevation-medium);
-}
-
-a {
-  color: var(--black);
-  text-decoration-skip-ink: auto;
-  text-decoration: underline;
 }
 
 header {
@@ -96,14 +108,6 @@ nav ul {
   margin: 0;
   display: flex;
   gap: 1em;
-}
-
-li {
-  margin: 0;
-}
-
-p {
-  margin: 0;
 }
 
 article h2 {
