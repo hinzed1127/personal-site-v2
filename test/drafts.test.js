@@ -30,7 +30,7 @@ describe("draft posts", () => {
     const results = await build("");
     const draftPost = findByUrl(
       results,
-      "/posts/regular-reflections-3-a-terrible-horrible-no-good-very-bad-month/"
+      "/posts/test-draft-fixture/"
     );
     expect(draftPost).toBeDefined();
   });
@@ -39,7 +39,7 @@ describe("draft posts", () => {
     const results = await build("production");
     const draftPost = findByUrl(
       results,
-      "/posts/regular-reflections-3-a-terrible-horrible-no-good-very-bad-month/"
+      "/posts/test-draft-fixture/"
     );
     expect(draftPost).toBeUndefined();
   });
@@ -53,21 +53,21 @@ describe("draft posts", () => {
     const results = await build("production");
     const postsPage = findByUrl(results, "/posts/");
     expect(postsPage).toBeDefined();
-    expect(postsPage.content).not.toContain("Regular Reflections #3");
+    expect(postsPage.content).not.toContain("Test Draft Fixture");
   });
 
   it("includes draft posts in the post list page in dev", async () => {
     const results = await build("");
     const postsPage = findByUrl(results, "/posts/");
     expect(postsPage).toBeDefined();
-    expect(postsPage.content).toContain("Regular Reflections #3");
+    expect(postsPage.content).toContain("Test Draft Fixture");
   });
 
   it("excludes draft posts from RSS feed in production", async () => {
     const results = await build("production");
     const feed = findByUrl(results, "/feed.xml");
     expect(feed).toBeDefined();
-    expect(feed.content).not.toContain("Regular Reflections #3");
+    expect(feed.content).not.toContain("Test Draft Fixture");
   });
 
   it("shows [DRAFT] label in post list in dev", async () => {
@@ -80,7 +80,7 @@ describe("draft posts", () => {
     const results = await build("");
     const draftPost = findByUrl(
       results,
-      "/posts/regular-reflections-3-a-terrible-horrible-no-good-very-bad-month/"
+      "/posts/test-draft-fixture/"
     );
     expect(draftPost.content).toContain("[DRAFT]");
   });
@@ -89,7 +89,7 @@ describe("draft posts", () => {
     const results = await build("production");
     const homepage = findByUrl(results, "/");
     expect(homepage).toBeDefined();
-    expect(homepage.content).not.toContain("Regular Reflections #3");
+    expect(homepage.content).not.toContain("Test Draft Fixture");
   });
 
   it("does not show [DRAFT] label on non-draft post pages in dev", async () => {
@@ -98,7 +98,7 @@ describe("draft posts", () => {
       (r) =>
         r.url.startsWith("/posts/") &&
         r.url !== "/posts/" &&
-        r.url !== "/posts/regular-reflections-3-a-terrible-horrible-no-good-very-bad-month/"
+        r.url !== "/posts/test-draft-fixture/"
     );
     for (const post of nonDraftPosts) {
       expect(post.content).not.toContain("[DRAFT]");
