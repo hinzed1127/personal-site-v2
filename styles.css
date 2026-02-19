@@ -63,6 +63,25 @@
   }
 }
 
+@layer composition {
+  .center {
+    max-width: min(45em, 96vw);
+    margin-inline: auto;
+    padding-inline: 1.5em;
+  }
+
+  .flow > * + * {
+    margin-top: var(--flow-space, 1rem);
+  }
+
+  .cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--cluster-space, 1em);
+    align-items: center;
+  }
+}
+
 @layer blocks {
   .container {
     min-height: calc(100vh - var(--border-height) * 2);
