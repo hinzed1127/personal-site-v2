@@ -13,7 +13,7 @@
 
 <body>
     <div class="border"></div>
-    <div class="container">
+    <div class="container center">
       <header>
         {% comment %} <img src="./headshot.png" alt="" aria-hidden="true"> {% endcomment %}
         <div class="header-name">
@@ -22,7 +22,7 @@
           </h1>
         </div>
         <nav>
-          <ul>
+          <ul class="cluster">
             <li><a href="/posts/">Posts</a></li>
             {% comment %} <li><a href="/reading/">Reading</a></li> {% endcomment %}
             <li><a href="/about/">About</a></li>
@@ -30,7 +30,7 @@
           </ul>
         </nav>
       </header>
-      <article>
+      <article class="flow">
         {{ content }}
       </article>
     </div>
