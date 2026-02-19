@@ -92,10 +92,7 @@
   }
 
   .container {
-    max-width: min(45em, 96vw);
     border-radius: 4px;
-    margin: 0 auto;
-    padding: 0 1.5em;
     background: var(--pale-lavender);
     border-left: 10px solid var(--lavender);
     border-right: 10px solid var(--lavender);
@@ -126,8 +123,6 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    gap: 1em;
   }
 
   article h2 {
@@ -245,10 +240,6 @@
     .photo-stack-item.on-top {
       z-index: auto;
     }
-  }
-
-  article p + p {
-    margin-top: 1rem;
   }
 
   article li {
