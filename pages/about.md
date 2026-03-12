@@ -1,6 +1,6 @@
 ---
 title: custom about title
-layout: base.liquid
+layout: about.liquid
 permalink: /about/
 ---
 # A Little About Me
@@ -29,4 +29,15 @@ A few personal things:
 ## Contact
 
 Email: [hello@danhinze.com](mailto:hello@danhinze.com)
+
+---
+
+## AI Disclaimer
+
+I hate that I have to include this, but such is the world we live in. While I've grown to accept the utility of AI for programming-related tasks, I'm not willing to let that extend to my prose. So much of my motivation for maintaining a personal site is to have a place to articulate and work through _my_ thoughts; delegating that to an LLM seems to be beside the point. To quote [this similar disclaimer](https://brandur.org/human):
+
+> Why should a reader be expected to spend their time reading something that an LLM operator did not consider valuable enough to spend their time writing?
+
+While I hope to document my LLM-assisted programming flow at some point (maybe when it stops shifting every 4-6 weeks), I offer this guarantee: all prose on this site is written by me. While I'll occasionally use LLMs to help with copyediting and proofreading, the words themselves start with me. 
+
 
