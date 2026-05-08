@@ -7,7 +7,9 @@
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
-    "test": "vitest run"
+    "test": "vitest run",
+    "add-link": "bun scripts/add-link.ts",
+    "add-post": "bun scripts/add-post.ts"
   },
   "keywords": [],
   "author": "",
