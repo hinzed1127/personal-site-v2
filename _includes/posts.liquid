@@ -3,6 +3,8 @@ layout: base.liquid
 ---
 
 {% assign sorted_posts = collections.posts | sort: 'data.date' | reverse %}
+Tip: for the RSS users out there, subscribe to post updates <a href="https://danhinze.com/feed.xml">here</a>.
+<hr>
 {% for post in sorted_posts %}
 <div>
   <ul class="posts-list">
