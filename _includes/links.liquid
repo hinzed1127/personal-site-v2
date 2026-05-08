@@ -3,3 +3,12 @@ layout: base.liquid
 ---
 
 {{ content }}
+
+{% for link in collections.links %}
+<div>
+  <ul class="posts-list">
+    <strong><a href="{{ link.url }}">{{ link.data.title }}</a></strong>
+    <div>{{ link.data.date | date: '%b %d, %Y', 'utc' }}</div>
+  </ul>
+</div>
+{% endfor %}

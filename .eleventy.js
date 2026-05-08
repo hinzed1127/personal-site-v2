@@ -9,6 +9,12 @@ export default function (config) {
 
   config.addGlobalData("isDev", !isProduction);
 
+  config.addFilter("hostname", (url) => new URL(url).hostname);
+
+  config.addCollection("links", (collectionApi) => {
+    return collectionApi.getFilteredByGlob("links/*.md").sort((a, b) => b.date - a.date);
+  });
+
   config.addCollection("posts", (collectionApi) => {
     return collectionApi.getFilteredByTag("post").filter((post) => {
       return isProduction ? !post.data.draft : true;

@@ -22,4 +22,33 @@ describe("links page", () => {
     const page = findByUrl(results, "/links/");
     expect(page.content).toContain('href="/links/"');
   });
+
+  it("renders individual link pages under /links/", async () => {
+    const results = await build();
+    const linkPages = results.filter(
+      r => r.url.startsWith("/links/") && r.url !== "/links/"
+    );
+    expect(linkPages.length).toBeGreaterThan(0);
+  });
+
+  it("individual link pages include the external link", async () => {
+    const results = await build();
+    const linkPages = results.filter(
+      r => r.url.startsWith("/links/") && r.url !== "/links/"
+    );
+    for (const page of linkPages) {
+      expect(page.content).toMatch(/href="https?:\/\//);
+    }
+  });
+
+  it("index page lists link titles linking to individual pages", async () => {
+    const results = await build();
+    const index = findByUrl(results, "/links/");
+    const linkPages = results.filter(
+      r => r.url.startsWith("/links/") && r.url !== "/links/"
+    );
+    for (const page of linkPages) {
+      expect(index.content).toContain(`href="${page.url}"`);
+    }
+  });
 });

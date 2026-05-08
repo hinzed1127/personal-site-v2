@@ -271,6 +271,10 @@ blockquote p + p {
 
 article hr {
   margin: 30px 0 20px;
+
+  &.link-header-divider {
+    margin: 20px 0;
+  }
 }
 
 ul.posts-list {
