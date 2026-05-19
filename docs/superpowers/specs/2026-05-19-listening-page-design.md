@@ -63,8 +63,8 @@ Calls Last.fm API in parallel:
 ```
 
 **Now Playing / Recently Played banner:**
-- If `nowPlaying` is set: renders with "Now Playing" label
-- Else if `recentTrack` date is within the last 7 days: renders with "Recently Played" label
+- If `nowPlaying` is set: renders with "Now Playing" label, track name, artist, and album art image
+- Else if `recentTrack` date is within the last 7 days: renders with "Recently Played" label, track name, artist, and album art image
 - Otherwise: hidden
 
 **Stats sidebar:**

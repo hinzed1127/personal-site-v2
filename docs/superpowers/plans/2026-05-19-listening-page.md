@@ -534,6 +534,7 @@ git commit -m "feat: album entry template"
   const bannerLabel = document.getElementById("listening-banner-label");
   const bannerTrack = document.getElementById("listening-banner-track");
   const bannerArtist = document.getElementById("listening-banner-artist");
+  const bannerImage = document.getElementById("listening-banner-image");
   const sidebarContent = document.getElementById("listening-sidebar-content");
   const sidebarError = document.getElementById("listening-sidebar-error");
   const artistsList = document.getElementById("listening-top-artists");
@@ -550,18 +551,18 @@ git commit -m "feat: album entry template"
   }
 
   function renderBanner(d) {
-    if (d.nowPlaying) {
-      bannerLabel.textContent = "Now Playing";
-      bannerTrack.textContent = d.nowPlaying.track;
-      bannerArtist.textContent = d.nowPlaying.artist;
-      banner.hidden = false;
-    } else if (d.recentTrack && isWithinLastWeek(d.recentTrack.date)) {
-      bannerLabel.textContent = "Recently Played";
-      bannerTrack.textContent = d.recentTrack.track;
-      bannerArtist.textContent = d.recentTrack.artist;
-      banner.hidden = false;
+    const track = d.nowPlaying ?? (d.recentTrack && isWithinLastWeek(d.recentTrack.date) ? d.recentTrack : null);
+    if (!track) return; // banner stays hidden
+
+    bannerLabel.textContent = d.nowPlaying ? "Now Playing" : "Recently Played";
+    bannerTrack.textContent = track.track;
+    bannerArtist.textContent = track.artist;
+    if (track.image) {
+      bannerImage.src = track.image;
+      bannerImage.alt = `${track.album} album art`;
+      bannerImage.hidden = false;
     }
-    // else: banner stays hidden
+    banner.hidden = false;
   }
 
   function renderSidebar(period) {
@@ -615,10 +616,13 @@ layout: base.liquid
 
 {{# Now Playing / Recently Played banner #}}
 <div id="listening-banner" class="listening-banner" hidden>
-  <span id="listening-banner-label" class="listening-banner__label"></span>
-  <span id="listening-banner-track" class="listening-banner__track"></span>
-  <span class="listening-banner__sep">—</span>
-  <span id="listening-banner-artist" class="listening-banner__artist"></span>
+  <img id="listening-banner-image" class="listening-banner__image" src="" alt="" hidden>
+  <div class="listening-banner__text">
+    <span id="listening-banner-label" class="listening-banner__label"></span>
+    <span id="listening-banner-track" class="listening-banner__track"></span>
+    <span class="listening-banner__sep">—</span>
+    <span id="listening-banner-artist" class="listening-banner__artist"></span>
+  </div>
 </div>
 
 <div class="listening-layout">
@@ -721,6 +725,19 @@ git commit -m "feat: listening page layout, sidebar, and client JS"
   align-items: center;
   gap: 0.4em;
   font-size: 0.9rem;
+}
+
+.listening-banner__image {
+  width: 2.5em;
+  height: 2.5em;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.listening-banner__text {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
 }
 
 .listening-banner__label {
