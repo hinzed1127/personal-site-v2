@@ -34,4 +34,4 @@ date: ${date}
 writeFileSync(filepath, content);
 console.log(`Created ${filepath}`);
 
-execSync(`code --wait "${filepath}"`, { stdio: "inherit" });
+execSync(`code "${filepath}"`, { stdio: "inherit" });
