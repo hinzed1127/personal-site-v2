@@ -1,6 +1,7 @@
 ---
 tags:
   - post
+  - site-updates
 title: "Introducing the links blog"
 subtitle: "In which I attempt to document my never-ending sea of browser tabs"
 date: 2026-05-08
