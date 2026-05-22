@@ -104,3 +104,11 @@ bun --hot ./index.ts
 ```
 
 For more information, read the Bun API docs in `node_modules/bun-types/docs/**.mdx`.
+
+## Design specs
+
+Design specs live in `docs/superpowers/specs/` and are gitignored — do not commit them.
+
+## Post tags
+
+Posts use Eleventy's `tags` frontmatter for two purposes: the `post` tag is required for collection membership (`collections.posts`) and must never be displayed. All other tags (e.g. `week-notes`, `music`, `books`) are semantic labels intended for display. Always filter out `post` before rendering tags. Use the `displayTags` Eleventy filter for this.
