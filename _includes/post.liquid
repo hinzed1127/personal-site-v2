@@ -2,6 +2,7 @@
 layout: base.liquid
 ---
 <h2>{{ title }}{% if isDev and draft %} <span class="draft-label">[DRAFT]</span>{% endif %}</h2>
+{% if subtitle %}<div>{{ subtitle }}</div>{% endif %}
 <p>{{ date | date: '%b %d, %Y', 'utc' }}</p>
 
 {{ content }}
