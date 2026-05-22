@@ -4,6 +4,7 @@ layout: base.liquid
 {% assign sorted_posts = collections.posts | sort: 'data.date' | reverse %}
 {% assign latest_post = sorted_posts | first %}
 <h2><a href="{{ latest_post.url }}">{{ latest_post.data.title }}</a></h2>
+{% if latest_post.data.subtitle %}<div>{{ latest_post.data.subtitle }}</div>{% endif %}
 {{ latest_post.data.date | date: '%b %d, %Y', 'utc' }}
 <div class="post-content">
   {{ latest_post.content }}
