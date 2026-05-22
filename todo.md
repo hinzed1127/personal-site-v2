@@ -17,12 +17,18 @@
     - Books
     - Occasional longform articles worth referencing
     - Blog posts that I feel like commenting on?
-- [ ] Figure out mechanism for saving interesting links
+- [x] Figure out mechanism for saving interesting links
+  - Links page added in `0d23f15`
   - Dig up old cloudflare workers POC for saving links via API?
-  - [ ] add `/links`/ page once format and mechanism is determined
+    - maybe a further improvement, but for now, there's `add-link.ts`
+  - [x] add `/links`/ page once format and mechanism is determined
 - [x] Add RSS feed for posts
   - [ ] ~~Integrate with Buttondown via~~ Roll my own RSS-to-email service
-- [ ] Add "previous post" and "next post" links to the bottom of the posts page
+- [x] Add "previous post" and "next post" links to the bottom of the posts page
+- add `/listening` page
+  - album/song highlights
+  - weekly/monthly stats (via Last.fm)
+  - currently playing (via Last.fm)
 
 ## Optional to-dos I haven't decided if I want yet
 - [ ] Add more bite-sized feed a la MacWright "micro" page or thesephist stream, etc

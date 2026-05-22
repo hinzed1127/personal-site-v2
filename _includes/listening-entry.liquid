@@ -1,0 +1,58 @@
+---
+layout: base.liquid
+permalink: false
+---
+
+<article class="album-entry">
+  <header class="album-entry__header">
+    {% if cover_image %}
+      <img class="album-entry__cover" src="{{ cover_image }}" alt="{{ title }} by {{ artist }}">
+    {% endif %}
+    <div class="album-entry__meta">
+      <h1 class="album-entry__title">{{ title }}</h1>
+      <p class="album-entry__artist">{{ artist }}</p>
+      <time class="album-entry__date" datetime="{{ date | date: '%Y-%m-%d', 'utc' }}">
+        {{ date | date: '%b %d, %Y', 'utc' }}
+      </time>
+    </div>
+  </header>
+
+  {% if genres and genres.size > 0 %}
+    <ul class="album-entry__genres">
+      {% for genre in genres %}
+        <li>{{ genre }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if favorite_tracks and favorite_tracks.size > 0 %}
+    <div class="album-entry__tracks">
+      <strong>Favorite tracks</strong>
+      <ul>
+        {% for track in favorite_tracks %}
+          <li>{{ track }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  {% if links and links.size > 0 %}
+    <ul class="album-entry__links">
+      {% for link in links %}
+        <li><a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if bandcamp_embed %}
+    <div class="album-entry__embed">
+      {{ bandcamp_embed }}
+    </div>
+  {% endif %}
+
+  {% if content %}
+    <div class="album-entry__commentary">
+      {{ content }}
+    </div>
+  {% endif %}
+</article>

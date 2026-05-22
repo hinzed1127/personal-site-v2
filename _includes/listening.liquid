@@ -1,0 +1,152 @@
+---
+layout: base.liquid
+---
+
+{% assign buildData = listening %}
+{% assign buildTrack = buildData.nowPlaying | default: buildData.recentTrack %}
+
+<div class="listening-layout">
+  <main class="listening-feed">
+    <div class="listening-feed__header">
+      {% if buildTrack %}
+        <div id="listening-now-playing" class="listening-now-playing">
+          <div class="listening-banner__stamp">
+            <div id="listening-banner" class="listening-banner">
+              <span id="listening-banner-label" class="listening-banner__label">
+                <span id="listening-banner-label-text">{% if buildData.nowPlaying %}Now Playing{% else %}Recently Played{% endif %}</span>
+                <span id="listening-banner-spinner" class="listening-banner__spinner"></span>
+              </span>
+              <div class="listening-banner__row">
+                <div class="listening-banner__left">
+                  {% if buildTrack.image %}
+                    <img id="listening-banner-image" class="listening-banner__image" src="{{ buildTrack.image }}" alt="{{ buildTrack.album }} album art">
+                  {% else %}
+                    <img id="listening-banner-image" class="listening-banner__image" src="" alt="" hidden>
+                  {% endif %}
+                </div>
+                <div class="listening-banner__right">
+                  <span id="listening-banner-track" class="listening-banner__track">{{ buildTrack.track }}</span>
+                  <span id="listening-banner-artist" class="listening-banner__artist">{{ buildTrack.artist }}</span>
+                  <em id="listening-banner-album" class="listening-banner__album">{{ buildTrack.album }}</em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% else %}
+        <div id="listening-now-playing" class="listening-now-playing" hidden>
+          <div class="listening-banner__stamp">
+            <div id="listening-banner" class="listening-banner" hidden>
+              <span id="listening-banner-label" class="listening-banner__label">
+                <span id="listening-banner-label-text"></span>
+                <span id="listening-banner-spinner" class="listening-banner__spinner"></span>
+              </span>
+              <div class="listening-banner__row">
+                <div class="listening-banner__left">
+                  <img id="listening-banner-image" class="listening-banner__image" src="" alt="" hidden>
+                </div>
+                <div class="listening-banner__right">
+                  <span id="listening-banner-track" class="listening-banner__track"></span>
+                  <span id="listening-banner-artist" class="listening-banner__artist"></span>
+                  <em id="listening-banner-album" class="listening-banner__album"></em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="listening-intro">
+      <h2>Music Blog</h2>
+      <p>Just a feed of albums (and maybe the occasional performance, EP, etc) that I'll try to update as I'm enjoying them.</p>
+    </div>
+
+    {% for entry in collections.listening %}
+      <article class="album-card">
+        <div class="album-card__top">
+          <div class="album-card__body">
+            <h2>{{ entry.data.title }}</h2>
+            <p class="album-card__artist">{{ entry.data.artist }}</p>
+            <time datetime="{{ entry.date | date: '%Y-%m-%d', 'utc' }}">{{ entry.date | date: '%b %d, %Y', 'utc' }}</time>
+          </div>
+          {% if entry.data.cover_image %}
+            <img class="album-card__cover" src="{{ entry.data.cover_image }}" alt="{{ entry.data.title }} by {{ entry.data.artist }}">
+          {% endif %}
+        </div>
+
+        {% if entry.content %}
+          <div class="album-card__content">{{ entry.content }}</div>
+        {% endif %}
+
+        {% if entry.data.favorite_tracks and entry.data.favorite_tracks.size > 0 %}
+          <p class="album-card__tracks">
+            <strong>{% if entry.data.favorite_tracks.size == 1 %}Favorite track{% else %}Favorite tracks{% endif %}:</strong>
+            {% for track in entry.data.favorite_tracks %}"{{ track }}"{% unless forloop.last %}, {% endunless %}{% endfor %}
+          </p>
+        {% endif %}
+
+        {% if entry.data.genres and entry.data.genres.size > 0 %}
+          <ul class="album-card__genres">
+            {% for genre in entry.data.genres %}
+              <li>{{ genre }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        {% if entry.data.links and entry.data.links.size > 0 %}
+          <ul class="album-card__links">
+            {% for link in entry.data.links %}
+              <li><a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.label }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </article>
+    {% else %}
+      <p>No album entries yet.</p>
+    {% endfor %}
+  </main>
+
+  <aside class="listening-sidebar">
+    {% if buildData %}
+      <div id="listening-sidebar-content">
+    {% else %}
+      <div id="listening-sidebar-content" hidden>
+    {% endif %}
+      <p class="listening-sidebar__stats-label">
+        Listening stats
+        <span id="listening-sidebar-spinner" class="listening-banner__spinner"></span>
+      </p>
+      <div class="listening-sidebar__toggle">
+        <button id="listening-week-btn" class="active">Week</button>
+        <button id="listening-month-btn">Month</button>
+      </div>
+      <h3>Top Artists</h3>
+      <ul id="listening-top-artists">
+        {% if buildData.topArtists.week %}
+          {% for artist in buildData.topArtists.week limit: 5 %}
+            <li><span class="rank">{{ forloop.index }}</span> {% if artist.url %}<a href="{{ artist.url }}" target="_blank" rel="noopener">{{ artist.name }}</a>{% else %}{{ artist.name }}{% endif %}</li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+      <h3>Top Albums</h3>
+      <ul id="listening-top-albums">
+        {% if buildData.topAlbums.week %}
+          {% for album in buildData.topAlbums.week limit: 5 %}
+            <li><span class="rank">{{ forloop.index }}</span> {% if album.url %}<a href="{{ album.url }}" target="_blank" rel="noopener">{{ album.name }}</a>{% else %}{{ album.name }}{% endif %}</li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+    </div>
+
+    <div id="listening-sidebar-error" class="listening-sidebar__error" hidden>
+      😔 Stats unavailable
+    </div>
+  </aside>
+</div>
+
+{% if buildData %}
+  <script id="listening-build-data" type="application/json">{{ buildData | json }}</script>
+{% endif %}
+
+<script type="module" src="/vendor/listening-client.js"></script>
