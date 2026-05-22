@@ -10,6 +10,7 @@ export default function (config) {
   config.addGlobalData("isDev", !isProduction);
 
   config.addFilter("hostname", (url) => new URL(url).hostname);
+  config.addFilter("displayTags", (tags) => (tags ?? []).filter(t => t !== "post"));
 
   config.addCollection("links", (collectionApi) => {
     return collectionApi.getFilteredByGlob("links/*.md").sort((a, b) => b.date - a.date);
