@@ -593,11 +593,35 @@ article lite-youtube {
   margin: 0.5em 0;
 }
 
-.album-card__genres li {
+.tag-pill,
+.album-card__genres li,
+.album-entry__genres li {
   font-size: 0.75rem;
   background: color-mix(in srgb, var(--lavender) 78%, rebeccapurple);
   padding: 0.15em 0.6em;
   border-radius: 999px;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-tags-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  margin-top: 2em;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
 }
 
 .album-card__links {
@@ -645,13 +669,6 @@ article lite-youtube {
   list-style: none;
   padding: 0;
   margin: 0.5em 0 1em;
-}
-
-.album-entry__genres li {
-  font-size: 0.75rem;
-  background: color-mix(in srgb, var(--lavender) 78%, rebeccapurple);
-  padding: 0.15em 0.6em;
-  border-radius: 999px;
 }
 
 .album-entry__tracks {
