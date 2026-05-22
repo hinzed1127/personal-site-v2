@@ -652,7 +652,6 @@ article lite-youtube {
   background: color-mix(in srgb, var(--lavender) 78%, rebeccapurple);
   padding: 0.15em 0.6em;
   border-radius: 999px;
-  margin: 20px;
 }
 
 .album-entry__tracks {
