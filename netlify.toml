@@ -6,3 +6,8 @@
   from = "/api/listening"
   to = "/.netlify/functions/listening"
   status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
