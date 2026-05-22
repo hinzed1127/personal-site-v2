@@ -7,6 +7,18 @@ layout: base.liquid
 
 {{ content }}
 
+{% assign display_tags = tags | displayTags %}
+{% if display_tags.size > 0 %}
+<div class="post-tags-footer">
+  <strong>Tags:</strong>
+  <ul class="post-tags">
+    {% for tag in display_tags %}
+      <li class="tag-pill">{{ tag }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
 {% assign sorted_posts = collections.posts | sort: 'data.date' | reverse %}
 
 {% for post in sorted_posts %}
