@@ -9,5 +9,17 @@ layout: base.liquid
 <div class="post-content">
   {{ latest_post.content }}
 </div>
+
+{% assign display_tags = latest_post.data.tags | displayTags %}
+{% if display_tags.size > 0 %}
+<div class="post-tags-footer">
+  <strong>Tags:</strong>
+  <ul class="post-tags">
+    {% for tag in display_tags %}
+      <li class="tag-pill">{{ tag }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
 <hr class="older-posts-divider">
 <p><a href="/posts/">View older posts</a></p>
