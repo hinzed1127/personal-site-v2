@@ -666,6 +666,7 @@ article lite-youtube {
 .album-entry__genres {
   display: flex;
   flex-wrap: wrap;
+  gap: 0.4em;
   list-style: none;
   padding: 0;
   margin: 0.5em 0 1em;
