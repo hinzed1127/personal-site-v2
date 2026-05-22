@@ -3,7 +3,7 @@ tags:
   - post
   - music
 title: Favorite music of 2025
-subtitle: 
+subtitle: "Reflecting on a subjectively strong year for new releases"
 date: 2026-01-02
 ---
 

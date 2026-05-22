@@ -2,7 +2,7 @@
 tags:
   - post
 title: "Introducing the links blog"
-subtitle: 
+subtitle: "In which I attempt to document my never-ending sea of browser tabs"
 date: 2026-05-08
 ---
 
