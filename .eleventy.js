@@ -15,6 +15,10 @@ export default function (config) {
     return collectionApi.getFilteredByGlob("links/*.md").sort((a, b) => b.date - a.date);
   });
 
+  config.addCollection("listening", (collectionApi) => {
+    return collectionApi.getFilteredByTag("listening").sort((a, b) => b.date - a.date);
+  });
+
   config.addCollection("posts", (collectionApi) => {
     return collectionApi.getFilteredByTag("post").filter((post) => {
       return isProduction ? !post.data.draft : true;
@@ -37,6 +41,7 @@ export default function (config) {
     "node_modules/lite-youtube-embed/src/lite-yt-embed.js": "vendor/lite-yt-embed.js",
   });
   config.addPassthroughCopy({ "photo-stack.js": "vendor/photo-stack.js" });
+  config.addPassthroughCopy({ "listening-client.js": "vendor/listening-client.js" });
 
   config.addShortcode("youtube", (videoId) => {
     return `<lite-youtube videoid="${videoId}">

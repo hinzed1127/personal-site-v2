@@ -1,0 +1,8 @@
+[build]
+  command = "bun run build"
+  publish = "_site"
+
+[[redirects]]
+  from = "/api/listening"
+  to = "/.netlify/functions/listening"
+  status = 200

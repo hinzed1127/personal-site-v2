@@ -1,0 +1,5 @@
+{
+  "layout": "listening-entry.liquid",
+  "permalink": "/listening/{{ title | slugify }}/",
+  "tags": ["listening"]
+}
