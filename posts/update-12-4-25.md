@@ -7,6 +7,7 @@ tags:
   - tv
   - music
 title: "Update 1: Workiversary and Winter"
+subtitle: 
 date: 2025-12-04
 ---
 It was a gentle and then aggressive transition from fall to winter in Minneapolis this year. One day I was wearing shorts and raking a final batch of leaves; a few days later, weather had plummeted into single-digit temperatures with a biting wind. Combined with daylight saving time, it's a jarring change to the end of days: walking the dogs in brutal cold, hopefully before early sunsets force that walk into darkness, to boot. It's not my favorite seasonal shift, but I'm combatting it with a focus on more evening reading and an earlier start to my days (those 6 a.m. workouts haven't gotten any easier in freezing darkness, but I'm mostly staying on top of it).
