@@ -270,6 +270,14 @@ blockquote p + p {
   margin-top: 0.5rem;
 }
 
+pre {
+  padding: 1rem;
+  border-radius: 4px;
+  background: var(--lavender);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 .post-content {
   margin-top: 1rem;
 }
