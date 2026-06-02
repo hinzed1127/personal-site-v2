@@ -1,0 +1,3 @@
+I absolutely loved Olga Tokarczuk's _Drive Your Plow Over the Bones of the Dead_, so I was excited for to dig into this when it was gifted to me. While it predates _Drive Your Plow Over the Bones of the Dead_ by a decade, its English translation was republished last year.
+
+Unfortunately, while Tokarczuk's prose is just as lovely in this novel, I found actually getting through the book much more of a slog. Perhaps this is due to the structure of it; while there are a few general themes and narratives that persist through the novel, it is definitely not plot-driven, with instead more of a series of vignettes and impressionistic chapters focused on this small village in southwest Poland near the Czech Republic, in the same area that Tokarczuk lives.
