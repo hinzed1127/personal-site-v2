@@ -38,3 +38,10 @@
 ## More recent (6/2/26)
 - [ ] Instagram-style image carousel on posts when multiple photos are posted together
 - fix failing tests (or remove if they're not needed?)
+- `/travel` page that has travel logs. Could also just make this a tagged blog post
+- Add openstories elements. More at:
+  - [muan/site: My personal site ✌🏼.](https://github.com/muan/site)
+  - [dddddddddzzzz/OpenStories: The Open Stories format.](https://github.com/dddddddddzzzz/OpenStories)
+  - [OpenStories](https://openstories.fyi/)
+  - [dddddddddzzzz/open-stories-element: Open Stories feed → Story viewer](https://github.com/dddddddddzzzz/open-stories-element)
+  - [<open-stories>](https://element.openstories.fyi/demo/)
