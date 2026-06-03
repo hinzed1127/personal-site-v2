@@ -10,7 +10,8 @@
     "test": "vitest run",
     "add-link": "bun scripts/add-link.ts",
     "add-post": "bun scripts/add-post.ts",
-    "add-album": "bun scripts/add-album.ts"
+    "add-album": "bun scripts/add-album.ts",
+    "kill-dev": "sh scripts/kill-dev.sh"
   },
   "keywords": [],
   "author": "",
@@ -22,11 +23,15 @@
     "@11ty/eleventy-plugin-rss": "^2.0.4",
     "lite-youtube-embed": "^0.3.4",
     "markdown-it-anchor": "^9.2.0",
-    "markdown-it-link-attributes": "^4.0.1"
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-link-attributes": "^4.0.1",
+    "markdown-it-shiki": "^0.9.0",
+    "shiki": "^4.1.0"
   },
   "devDependencies": {
     "@netlify/functions": "^5.2.2",
     "@types/bun": "^1.3.13",
+    "jsdom": "^29.1.1",
     "netlify-cli": "^26.0.2",
     "vitest": "^4.0.18"
   },

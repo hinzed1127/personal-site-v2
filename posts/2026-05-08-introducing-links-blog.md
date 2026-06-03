@@ -9,7 +9,7 @@ date: 2026-05-08
 
 It's been a minute since an update, but with the weather finally breaking into proper spring, it's time to come out of hibernation with some site updates.
 
-It's easy to be dismayed sometimes at the homogenization of certain online forums caused by the flattened user interfaces of social media. Nevertheless, the internet is vast. Sometimes that never-ending firehouse of information feels overwhelming, as evidenced by the constant pile of browser tabs I'm accumulating on a daily basis. At the same time, that tab pile wouldn't be growing if I ddn't feel like there was so much I want to read and discover. 
+It's easy to be dismayed sometimes at the homogenization of certain online forums caused by the flattened user interfaces of social media. Nevertheless, the internet is vast. Sometimes that never-ending firehouse of information feels overwhelming, as evidenced by the constant pile of browser tabs I'm accumulating on a daily basis. At the same time, that tab pile wouldn't be growing if I didn't feel like there was so much I want to read and discover. 
 
 Some of my favorite blogs add to this pile with regular links posts themselves. I'm thinking of examples like:
 

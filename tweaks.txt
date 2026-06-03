@@ -1,0 +1,1 @@
+I noticed you used bun to add dependencies. I've used pnpm in the past because I thought that was more efficient with memory on my machine. What do you think?

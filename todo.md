@@ -5,7 +5,7 @@
 - [ ] Add approved comments in the vein of [this](https://pketh.org/blog-comments.html)
 - [x] Add anchor links for individual page headings via [markdown-it-anchor](https://github.com/valeriangalliat/markdown-it-anchor)
 - [ ] Once there's a larger amount of posts that belong to different categories:
-  - [ ] Add tagging to posts
+  - [x] Add tagging to posts
   - [ ] Enable filtering by tags on posts
 - [ ] Add a blogroll
 - [ ] Figure out better CSS organization
@@ -29,7 +29,12 @@
   - album/song highlights
   - weekly/monthly stats (via Last.fm)
   - currently playing (via Last.fm)
+- add biome.js for linting and formatting
 
 ## Optional to-dos I haven't decided if I want yet
 - [ ] Add more bite-sized feed a la MacWright "micro" page or thesephist stream, etc
 - [ ] Add a `/now` page [a la Derek Sivers](https://nownownow.com/about)
+
+## More recent (6/2/26)
+- [ ] Instagram-style image carousel on posts when multiple photos are posted together
+- fix failing tests (or remove if they're not needed?)
