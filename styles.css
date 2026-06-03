@@ -547,6 +547,7 @@ article lite-youtube {
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
 
 .post-tags-footer {
@@ -559,7 +560,12 @@ article lite-youtube {
 .post-meta {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.6em;
+}
+
+.post-meta > span {
+  white-space: nowrap;
 }
 
 .album-card__links {
