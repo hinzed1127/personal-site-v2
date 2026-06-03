@@ -7,7 +7,7 @@ tags:
   - gardening
 title: "Pulling weeds and planting seeds"
 subtitle: "Using Claude Code to overcome analysis paralysis and touch grass"
-date: 2026-06-02
+date: 2026-06-03
 ---
 
 As a software engineer who lives in the tech world but doesn't have that same social bubble outside of work[^1], the divide between how _I've_ approached AI[^2] and how I've seen less technical people use it has become a noticeable chasm, one which is almost certainly affecting how they view such a rapidly changing technology. With the major AI companies putting out ads showcasing use cases like "help me plan a first date" or "give me the perfect chocolate chip cookie recipe", it doesn't surprise me that so many people are deriding AI as a solution in search of a problem. This is a fundamental misunderstanding of how to explain what these technologies are good for and fails to provide examples where LLMs actually excel in helping people make progress on tasks in a meaningful way.

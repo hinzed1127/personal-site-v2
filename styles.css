@@ -696,6 +696,7 @@ article lite-youtube {
 }
 
 .bluesky-embed {
+  display: block !important;
   margin: 20px auto !important;
 }
 
