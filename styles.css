@@ -166,75 +166,8 @@ article img:not(.listening-banner__image, .album-card__cover) {
   box-shadow: 1px 1px 4px hsl(var(--shadow-color) / 0.2);
 }
 
-/* Extra vertical spacing for post images that aren't in a stack */
-article img:not(.photo-stack img, .listening-banner__image, .album-card__cover) {
+article img:not(.listening-banner__image, .album-card__cover) {
   margin: 25px auto;
-}
-
-.photo-stack {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 600px; /* TODO: figure out how to dynamically make this fit according to size of photo-stack-items */
-  margin: 4rem 0;
-  padding: 2rem;
-}
-
-.photo-stack-item {
-  position: absolute;
-  box-shadow: 1px 1px 4px hsl(var(--shadow-color) / 0.2);
-  cursor: pointer;
-  transition:
-    transform 0.25s ease,
-    z-index 0s;
-  z-index: calc(var(--i));
-  max-width: 70%;
-}
-
-.photo-stack-item:nth-child(1) {
-  transform: rotate(-15deg) translate(-50px, -20px);
-}
-.photo-stack-item:nth-child(2) {
-  transform: rotate(10deg) translate(40px, -50px);
-}
-.photo-stack-item:nth-child(3) {
-  transform: rotate(-10deg) translate(-85px, 40px);
-}
-.photo-stack-item:nth-child(4) {
-  transform: rotate(10deg) translate(-35px, 35px);
-}
-
-.photo-stack-item.on-top {
-  z-index: 100;
-}
-
-.photo-stack-item img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-@media (max-width: 600px) {
-  .photo-stack {
-    position: static;
-    display: block;
-    min-height: auto;
-    padding: 0;
-    margin: 1.5rem 0;
-  }
-
-  .photo-stack-item,
-  .photo-stack-item:nth-child(n) {
-    position: static;
-    max-width: 100%;
-    margin: 1.5rem auto;
-    transform: none;
-  }
-
-  .photo-stack-item.on-top {
-    z-index: auto;
-  }
 }
 
 article p + p {
@@ -704,4 +637,130 @@ article lite-youtube {
 
 .album-entry__commentary {
   margin-top: 1.5em;
+}
+
+/* Footnotes */
+
+.footnote-trigger {
+  font-family: inherit;
+  color: var(--navy);
+  text-decoration: underline;
+  font-size: 0.75em;
+  vertical-align: super;
+}
+
+.footnote-trigger:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.footnote-popover {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  background: var(--pale-lavender);
+  border: 1px solid var(--silver);
+  border-radius: 6px;
+  box-shadow: var(--shadow-elevation-medium);
+  max-width: 320px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.footnotes {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--silver);
+  font-size: 0.875rem;
+  color: var(--dark-gray);
+}
+
+.footnotes ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footnotes li {
+  display: flex;
+  gap: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.footnotes li > p {
+  margin: 0;
+}
+
+.footnote-number {
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.bluesky-embed {
+  margin: 20px auto !important;
+}
+
+#footnote-sheet {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  #footnote-sheet {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: flex-end;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  #footnote-sheet.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #footnote-sheet-panel {
+    position: relative;
+    width: 100%;
+    max-height: 50vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px 12px 0 0;
+    background: var(--pale-lavender);
+    border: 1px solid var(--silver);
+    padding: 1.25rem 1rem 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  #footnote-sheet-content {
+    overflow-y: auto;
+    min-height: 0;
+    padding-top: 1.75rem;
+  }
+
+  #footnote-sheet.open #footnote-sheet-panel {
+    transform: translateY(0);
+  }
+
+  #footnote-sheet-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: var(--navy);
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+
+  #footnote-sheet-close:focus-visible {
+    outline: 2px solid var(--navy);
+    border-radius: 2px;
+  }
 }
