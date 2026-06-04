@@ -1,0 +1,29 @@
+---
+layout: base.liquid
+---
+
+<div class="link-post">
+  <h2>{{ title }}</h2>
+  <time datetime="{{ date | date: '%Y-%m-%d', 'utc' }}">{{ date | date: '%b %d, %Y', 'utc' }}</time>
+</div>
+<hr class="link-header-divider">
+
+{% assign sections = content | parseLinkSections %}
+
+{% if sections[""] != "" %}
+<div class="link-collection-intro">
+  {{ sections[""] }}
+</div>
+{% endif %}
+
+{% for item in links %}
+<div class="link-collection-item">
+  <h3>{{ item.title }}</h3>
+  <div>Link: <a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.url | hostname }}</a></div>
+  {% if sections[item.title] != "" %}
+  <div class="link-collection-commentary">
+    {{ sections[item.title] }}
+  </div>
+  {% endif %}
+</div>
+{% endfor %}

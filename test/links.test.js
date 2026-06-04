@@ -52,6 +52,24 @@ describe("links page", () => {
       expect(index.content).toContain(`href="${page.url}"`);
     }
   });
+
+  it("renders link collection pages with all sub-link titles", async () => {
+    const results = await build();
+    const collectionPage = results.find(
+      r => r.url.startsWith("/links/") && r.url !== "/links/" && r.content.includes("Some Test Article")
+    );
+    expect(collectionPage).toBeDefined();
+    expect(collectionPage.content).toContain("Another Test Article");
+    expect(collectionPage.content).toContain("example.com");
+  });
+
+  it("renders intro content before sub-links in a collection", async () => {
+    const results = await build();
+    const collectionPage = results.find(
+      r => r.url.startsWith("/links/") && r.url !== "/links/" && r.content.includes("Some Test Article")
+    );
+    expect(collectionPage.content).toContain("Test intro paragraph");
+  });
 });
 
 describe("parseLinkSections filter", () => {
