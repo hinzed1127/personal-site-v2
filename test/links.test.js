@@ -70,6 +70,19 @@ describe("links page", () => {
     );
     expect(collectionPage.content).toContain("Test intro paragraph");
   });
+
+  it("does not render commentary div for links with no matching body section", async () => {
+    const results = await build();
+    const collectionPage = results.find(
+      r => typeof r.url === "string" && r.url.startsWith("/links/") && r.url !== "/links/" && r.content.includes("No Section Article")
+    );
+    expect(collectionPage).toBeDefined();
+    // The link should render but without a commentary div following it
+    const afterNoSection = collectionPage.content.slice(
+      collectionPage.content.indexOf("No Section Article")
+    );
+    expect(afterNoSection).not.toMatch(/link-collection-commentary[\s\S]*?<\/div>[\s\S]*?link-collection-item/);
+  });
 });
 
 describe("parseLinkSections filter", () => {

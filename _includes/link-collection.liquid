@@ -10,7 +10,7 @@ layout: base.liquid
 
 {% assign sections = content | parseLinkSections %}
 
-{% if sections[""] != "" %}
+{% if sections[""] %}
 <div class="link-collection-intro">
   {{ sections[""] }}
 </div>
@@ -20,7 +20,7 @@ layout: base.liquid
 <div class="link-collection-item">
   <h3>{{ item.title }}</h3>
   <div>Link: <a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.url | hostname }}</a></div>
-  {% if sections[item.title] != "" %}
+  {% if sections[item.title] %}
   <div class="link-collection-commentary">
     {{ sections[item.title] }}
   </div>

@@ -7,6 +7,8 @@ links:
     url: https://example.com/article
   - title: "Another Test Article"
     url: https://example.org/post
+  - title: "No Section Article"
+    url: https://example.net/no-section
 ---
 
 Test intro paragraph.
