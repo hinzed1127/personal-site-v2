@@ -1,3 +1,4 @@
+import { parseLinkSections } from "./.eleventy-filters.js";
 import markdownItLinkAttributes from "markdown-it-link-attributes";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import anchor from "markdown-it-anchor";
@@ -12,6 +13,7 @@ export default function (config) {
 
   config.addFilter("hostname", url => new URL(url).hostname);
   config.addFilter("displayTags", tags => (tags ?? []).filter(t => t !== "post"));
+  config.addFilter("parseLinkSections", parseLinkSections);
 
   config.addCollection("links", collectionApi => {
     return collectionApi.getFilteredByGlob("links/*.md").sort((a, b) => b.date - a.date);

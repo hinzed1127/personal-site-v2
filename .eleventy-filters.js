@@ -1,0 +1,31 @@
+/**
+ * Parses rendered HTML body of a link collection entry into a map.
+ * Keys: "" for intro content before first <h3>, and each h3 heading text.
+ * Values: trimmed HTML content following each heading.
+ */
+export function parseLinkSections(html) {
+  if (!html) return { "": "" };
+
+  // Split on opening of any h3 tag (may be wrapped in header-wrapper div)
+  const parts = html.split(/(?=<(?:div class="header-wrapper">)?<h3)/);
+  const result = {};
+
+  // First part is the intro (before any h3)
+  const intro = parts[0].replace(/<div class="header-wrapper">\s*$/, "").trim();
+  result[""] = intro;
+
+  for (let i = 1; i < parts.length; i++) {
+    const part = parts[i];
+    // Extract heading text: content of <h3>...</h3>, stripping the anchor link
+    const headingMatch = part.match(/<h3[^>]*>([\s\S]*?)<\/h3>/);
+    if (!headingMatch) continue;
+    // Strip any child elements (including their text content) to get plain text
+    const headingText = headingMatch[1].replace(/<[^>]+>[^<]*<\/[^>]+>/g, "").replace(/<[^>]+>/g, "").trim();
+    // Content is everything after the closing </h3> (and closing wrapper div if present)
+    const afterHeading = part.slice(part.indexOf("</h3>") + 5);
+    const content = afterHeading.replace(/^\s*<\/div>\s*/, "").trim();
+    result[headingText] = content;
+  }
+
+  return result;
+}
