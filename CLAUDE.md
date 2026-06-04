@@ -1,113 +1,64 @@
+## Project Overview
 
-Default to using Bun instead of Node.js.
+Personal blog/site built with Eleventy (static site generator) + Netlify Functions. Dev server runs via Netlify CLI to proxy functions locally.
+
+## Commands
+
+```bash
+bun run start     # Dev server on port 8888 (netlify dev, proxies functions)
+bun run build     # Build static site → _site/
+bun run test      # Run vitest test suite
+bun run add-post  # Scaffold a new blog post
+bun run add-link  # Scaffold a new link
+bun run add-album # Scaffold a new album entry
+```
+
+## Architecture
+
+- `posts/` — blog posts (Markdown)
+- `links/` — link collection entries
+- `listening/` — music listening entries
+- `_includes/` — Liquid templates (base.liquid, post.liquid, etc.)
+- `_data/` — Eleventy global data (metadata.json, listening.ts)
+- `netlify/functions/` — Netlify Functions (listening.ts — Last.fm API proxy)
+- `.eleventy.js` — Eleventy config: collections, filters, plugins, transforms
+- `_site/` — build output (gitignored)
+
+## Environment Variables
+
+```
+LASTFM_API_KEY=    # Required for /api/listening endpoint
+LASTFM_USERNAME=   # Required for /api/listening endpoint
+```
+
+Copy `.env.example` to `.env`.
+
+## Package management
+
+Use `pnpm` to install/manage dependencies (`pnpm install`, `pnpm add`, etc.). `netlify-cli` is a local dev dependency — use `pnpm run start` or `pnpm exec netlify` rather than any globally installed `netlify`.
+
+## Bun (runtime)
+
+Use Bun to run scripts and files instead of Node.js.
 
 - Use `bun <file>` instead of `node <file>` or `ts-node <file>`
 - Use `bun run test` instead of `bun test`, `jest`, or `vitest` directly
 - Use `bun build <file.html|file.ts|file.css>` instead of `webpack` or `esbuild`
-- Use `bun install` instead of `npm install` or `yarn install` or `pnpm install`
-- Use `bun run <script>` instead of `npm run <script>` or `yarn run <script>` or `pnpm run <script>`
+- Use `bun run <script>` instead of `npm run <script>`
 - Use `bunx <package> <command>` instead of `npx <package> <command>`
 - Bun automatically loads .env, so don't use dotenv.
-
-## APIs
-
-- `Bun.serve()` supports WebSockets, HTTPS, and routes. Don't use `express`.
-- `bun:sqlite` for SQLite. Don't use `better-sqlite3`.
-- `Bun.redis` for Redis. Don't use `ioredis`.
-- `Bun.sql` for Postgres. Don't use `pg` or `postgres.js`.
-- `WebSocket` is built-in. Don't use `ws`.
-- Prefer `Bun.file` over `node:fs`'s readFile/writeFile
-- Bun.$`ls` instead of execa.
 
 ## Testing
 
 This project uses vitest. Run tests with `bun run test`.
 
-```ts#index.test.ts
-import { test, expect } from "vitest";
-
-test("hello world", () => {
-  expect(1).toBe(1);
-});
-```
-
-## Frontend
-
-Use HTML imports with `Bun.serve()`. Don't use `vite`. HTML imports fully support React, CSS, Tailwind.
-
-Server:
-
-```ts#index.ts
-import index from "./index.html"
-
-Bun.serve({
-  routes: {
-    "/": index,
-    "/api/users/:id": {
-      GET: (req) => {
-        return new Response(JSON.stringify({ id: req.params.id }));
-      },
-    },
-  },
-  // optional websocket support
-  websocket: {
-    open: (ws) => {
-      ws.send("Hello, world!");
-    },
-    message: (ws, message) => {
-      ws.send(message);
-    },
-    close: (ws) => {
-      // handle close
-    }
-  },
-  development: {
-    hmr: true,
-    console: true,
-  }
-})
-```
-
-HTML files can import .tsx, .jsx or .js files directly and Bun's bundler will transpile & bundle automatically. `<link>` tags can point to stylesheets and Bun's CSS bundler will bundle.
-
-```html#index.html
-<html>
-  <body>
-    <h1>Hello, world!</h1>
-    <script type="module" src="./frontend.tsx"></script>
-  </body>
-</html>
-```
-
-With the following `frontend.tsx`:
-
-```tsx#frontend.tsx
-import React from "react";
-import { createRoot } from "react-dom/client";
-
-// import .css files directly and it works
-import './index.css';
-
-const root = createRoot(document.body);
-
-export default function Frontend() {
-  return <h1>Hello, world!</h1>;
-}
-
-root.render(<Frontend />);
-```
-
-Then, run index.ts
-
-```sh
-bun --hot ./index.ts
-```
-
-For more information, read the Bun API docs in `node_modules/bun-types/docs/**.mdx`.
-
 ## Design specs
 
 Design specs live in `docs/superpowers/specs/` and are gitignored — do not commit them.
+
+## Gotchas
+
+- Posts with `draft: true` in frontmatter are excluded from production builds but visible in dev
 
 ## Post tags
 
