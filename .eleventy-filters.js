@@ -21,9 +21,12 @@ export function parseLinkSections(html) {
     if (!headingMatch) continue;
     // Strip any child elements (including their text content) to get plain text
     const headingText = headingMatch[1].replace(/<[^>]+>[\s\S]*?<\/[^>]+>/g, "").replace(/<[^>]+>/g, "").trim();
-    // Content is everything after the closing </h3> (and closing wrapper div if present)
+    // Content is everything after the closing </h3>.
+    // markdown-it-anchor (linkAfterHeader mode) places <a class="header-anchor"> between
+    // </h3> and the closing </div> of the wrapper — strip both before returning content.
     const afterHeading = part.slice(part.indexOf("</h3>") + 5);
     const content = afterHeading
+      .replace(/^\s*<a class="header-anchor"[^>]*>[\s\S]*?<\/a>\s*/, "")
       .replace(/^\s*<\/div>\s*/, "")
       .replace(/\s*<div class="header-wrapper">\s*$/, "")
       .trim();
