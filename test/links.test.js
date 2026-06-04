@@ -27,7 +27,7 @@ describe("links page", () => {
   it("renders individual link pages under /links/", async () => {
     const results = await build();
     const linkPages = results.filter(
-      r => r.url.startsWith("/links/") && r.url !== "/links/"
+      r => typeof r.url === "string" && r.url.startsWith("/links/") && r.url !== "/links/"
     );
     expect(linkPages.length).toBeGreaterThan(0);
   });
@@ -35,7 +35,7 @@ describe("links page", () => {
   it("individual link pages include the external link", async () => {
     const results = await build();
     const linkPages = results.filter(
-      r => r.url.startsWith("/links/") && r.url !== "/links/"
+      r => typeof r.url === "string" && r.url.startsWith("/links/") && r.url !== "/links/"
     );
     for (const page of linkPages) {
       expect(page.content).toMatch(/href="https?:\/\//);
@@ -46,7 +46,7 @@ describe("links page", () => {
     const results = await build();
     const index = findByUrl(results, "/links/");
     const linkPages = results.filter(
-      r => r.url.startsWith("/links/") && r.url !== "/links/"
+      r => typeof r.url === "string" && r.url.startsWith("/links/") && r.url !== "/links/"
     );
     for (const page of linkPages) {
       expect(index.content).toContain(`href="${page.url}"`);
@@ -56,7 +56,7 @@ describe("links page", () => {
   it("renders link collection pages with all sub-link titles", async () => {
     const results = await build();
     const collectionPage = results.find(
-      r => r.url.startsWith("/links/") && r.url !== "/links/" && r.content.includes("Some Test Article")
+      r => typeof r.url === "string" && r.url.startsWith("/links/") && r.url !== "/links/" && r.content.includes("Some Test Article")
     );
     expect(collectionPage).toBeDefined();
     expect(collectionPage.content).toContain("Another Test Article");
@@ -66,7 +66,7 @@ describe("links page", () => {
   it("renders intro content before sub-links in a collection", async () => {
     const results = await build();
     const collectionPage = results.find(
-      r => r.url.startsWith("/links/") && r.url !== "/links/" && r.content.includes("Some Test Article")
+      r => typeof r.url === "string" && r.url.startsWith("/links/") && r.url !== "/links/" && r.content.includes("Some Test Article")
     );
     expect(collectionPage.content).toContain("Test intro paragraph");
   });
