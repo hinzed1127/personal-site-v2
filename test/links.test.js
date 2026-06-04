@@ -63,11 +63,16 @@ describe("parseLinkSections filter", () => {
   });
 
   it("maps h3 heading text to following content", () => {
-    const html = `<p>Intro.</p><div class="header-wrapper"><h3>Some Article<a class="header-anchor" href="#some-article">🔗</a></h3></div><p>Commentary here.</p><div class="header-wrapper"><h3>Another Thing<a class="header-anchor" href="#another-thing">🔗</a></h3></div><p>More notes.</p>`;
+    const html = `<p>Intro.</p>\n<div class="header-wrapper">\n<h3>Some Article<a class="header-anchor" href="#some-article">🔗</a></h3></div><p>Commentary here.</p>\n<div class="header-wrapper">\n<h3>Another Thing<a class="header-anchor" href="#another-thing">🔗</a></h3></div><p>More notes.</p>`;
     const result = parseLinkSections(html);
     expect(result[""]).toBe("<p>Intro.</p>");
     expect(result["Some Article"]).toBe('<p>Commentary here.</p>');
     expect(result["Another Thing"]).toBe('<p>More notes.</p>');
+  });
+
+  it("returns empty intro for null/undefined input", () => {
+    expect(parseLinkSections(null)[""]).toBe("");
+    expect(parseLinkSections(undefined)[""]).toBe("");
   });
 
   it("returns empty string for a link title with no commentary", () => {

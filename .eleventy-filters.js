@@ -6,12 +6,12 @@
 export function parseLinkSections(html) {
   if (!html) return { "": "" };
 
-  // Split on opening of any h3 tag (may be wrapped in header-wrapper div)
-  const parts = html.split(/(?=<(?:div class="header-wrapper">)?<h3)/);
+  // Split on opening of any h3 tag
+  const parts = html.split(/(?=<h3)/);
   const result = {};
 
-  // First part is the intro (before any h3)
-  const intro = parts[0].replace(/<div class="header-wrapper">\s*$/, "").trim();
+  // First part is the intro (before any h3); strip trailing header-wrapper div if present
+  const intro = parts[0].replace(/\s*<div class="header-wrapper">\s*$/, "").trim();
   result[""] = intro;
 
   for (let i = 1; i < parts.length; i++) {
@@ -20,10 +20,13 @@ export function parseLinkSections(html) {
     const headingMatch = part.match(/<h3[^>]*>([\s\S]*?)<\/h3>/);
     if (!headingMatch) continue;
     // Strip any child elements (including their text content) to get plain text
-    const headingText = headingMatch[1].replace(/<[^>]+>[^<]*<\/[^>]+>/g, "").replace(/<[^>]+>/g, "").trim();
+    const headingText = headingMatch[1].replace(/<[^>]+>[\s\S]*?<\/[^>]+>/g, "").replace(/<[^>]+>/g, "").trim();
     // Content is everything after the closing </h3> (and closing wrapper div if present)
     const afterHeading = part.slice(part.indexOf("</h3>") + 5);
-    const content = afterHeading.replace(/^\s*<\/div>\s*/, "").trim();
+    const content = afterHeading
+      .replace(/^\s*<\/div>\s*/, "")
+      .replace(/\s*<div class="header-wrapper">\s*$/, "")
+      .trim();
     result[headingText] = content;
   }
 
