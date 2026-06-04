@@ -7,7 +7,7 @@ layout: base.liquid
 {% for link in collections.links %}
 <div>
   <ul class="posts-list">
-    <strong><a href="{{ link.url }}">{{ link.data.title }}</a></strong>
+    <strong><a href="{{ link.url }}">{{ link.data.title }}</a></strong>{% if link.data.links %} <span class="link-count-badge">{{ link.data.links | size }} links</span>{% endif %}
     <div>{{ link.data.date | date: '%b %d, %Y', 'utc' }}</div>
   </ul>
 </div>

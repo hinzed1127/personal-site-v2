@@ -83,6 +83,21 @@ describe("links page", () => {
     );
     expect(afterNoSection).not.toMatch(/link-collection-commentary[\s\S]*?<\/div>[\s\S]*?link-collection-item/);
   });
+
+  it("shows link count badge for collection entries on the index", async () => {
+    const results = await build();
+    const index = findByUrl(results, "/links/");
+    // The fixture collection has 3 links
+    expect(index.content).toContain("3 links");
+  });
+
+  it("does not show link count badge for single-link entries on the index", async () => {
+    const results = await build();
+    const index = findByUrl(results, "/links/");
+    // Only the fixture collection should have a badge — check exactly one badge exists
+    const matches = index.content.match(/\d+ links/g) ?? [];
+    expect(matches.length).toBe(1);
+  });
 });
 
 describe("parseLinkSections filter", () => {
