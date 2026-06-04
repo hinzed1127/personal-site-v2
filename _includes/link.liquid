@@ -3,7 +3,7 @@ layout: base.liquid
 ---
 
 <div class="link-post">
-  <h1>{{ title }}</h1>
+  <h2>{{ title }}</h2>
   <div>Link: <a href="{{ link }}" target="_blank" rel="noopener">{{ link | hostname }}</a></div>
   <time datetime="{{ date | date: '%Y-%m-%d', 'utc' }}">{{ date | date: '%b %d, %Y', 'utc' }}</time>
 </div>
