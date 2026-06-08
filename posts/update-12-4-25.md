@@ -6,7 +6,7 @@ tags:
   - movies
   - music
   - tv
-title: "Update 1: Workiversary and Winter"
+title: "Workiversary and Winter"
 subtitle: "Another year in civic tech and things I've been listening to, watching, and reading"
 date: 2025-12-04
 ---
