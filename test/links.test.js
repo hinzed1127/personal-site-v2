@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import Eleventy from "@11ty/eleventy";
+import { parseLinkSections } from "../.eleventy-filters.js";
 
 async function build() {
   const elev = new Eleventy("./", "./_site", { quietMode: true });
@@ -26,7 +27,7 @@ describe("links page", () => {
   it("renders individual link pages under /links/", async () => {
     const results = await build();
     const linkPages = results.filter(
-      r => r.url.startsWith("/links/") && r.url !== "/links/"
+      r => typeof r.url === "string" && r.url.startsWith("/links/") && r.url !== "/links/"
     );
     expect(linkPages.length).toBeGreaterThan(0);
   });
@@ -34,7 +35,7 @@ describe("links page", () => {
   it("individual link pages include the external link", async () => {
     const results = await build();
     const linkPages = results.filter(
-      r => r.url.startsWith("/links/") && r.url !== "/links/"
+      r => typeof r.url === "string" && r.url.startsWith("/links/") && r.url !== "/links/"
     );
     for (const page of linkPages) {
       expect(page.content).toMatch(/href="https?:\/\//);
@@ -45,10 +46,87 @@ describe("links page", () => {
     const results = await build();
     const index = findByUrl(results, "/links/");
     const linkPages = results.filter(
-      r => r.url.startsWith("/links/") && r.url !== "/links/"
+      r => typeof r.url === "string" && r.url.startsWith("/links/") && r.url !== "/links/"
     );
     for (const page of linkPages) {
       expect(index.content).toContain(`href="${page.url}"`);
     }
+  });
+
+  it("renders link collection pages with all sub-link titles", async () => {
+    const results = await build();
+    const collectionPage = results.find(
+      r => typeof r.url === "string" && r.url.startsWith("/links/") && r.url !== "/links/" && r.content.includes("Some Test Article")
+    );
+    expect(collectionPage).toBeDefined();
+    expect(collectionPage.content).toContain("Another Test Article");
+    expect(collectionPage.content).toContain("example.com");
+  });
+
+  it("renders intro content before sub-links in a collection", async () => {
+    const results = await build();
+    const collectionPage = results.find(
+      r => typeof r.url === "string" && r.url.startsWith("/links/") && r.url !== "/links/" && r.content.includes("Some Test Article")
+    );
+    expect(collectionPage.content).toContain("Test intro paragraph");
+  });
+
+  it("does not render commentary div for links with no matching body section", async () => {
+    const results = await build();
+    const collectionPage = results.find(
+      r => typeof r.url === "string" && r.url.startsWith("/links/") && r.url !== "/links/" && r.content.includes("No Section Article")
+    );
+    expect(collectionPage).toBeDefined();
+    // The link should render but without a commentary div following it
+    const afterNoSection = collectionPage.content.slice(
+      collectionPage.content.indexOf("No Section Article")
+    );
+    expect(afterNoSection).not.toMatch(/link-collection-commentary[\s\S]*?<\/div>[\s\S]*?link-collection-item/);
+  });
+
+  it("shows link count badge for collection entries on the index", async () => {
+    const results = await build();
+    const index = findByUrl(results, "/links/");
+    // The fixture collection has 3 links
+    expect(index.content).toContain("3 links");
+  });
+
+  it("does not show link count badge for single-link entries on the index", async () => {
+    const results = await build();
+    const index = findByUrl(results, "/links/");
+    // Only the fixture collection should have a badge — check exactly one badge exists
+    const matches = index.content.match(/\d+ links/g) ?? [];
+    expect(matches.length).toBe(1);
+  });
+});
+
+describe("parseLinkSections filter", () => {
+  it("returns empty string intro and empty map when body has no h3s", () => {
+    const html = "<p>Just an intro.</p>";
+    const result = parseLinkSections(html);
+    expect(result[""]).toBe("<p>Just an intro.</p>");
+    expect(Object.keys(result).length).toBe(1);
+  });
+
+  it("maps h3 heading text to following content", () => {
+    // Matches real markdown-it-anchor linkAfterHeader output: anchor is after </h3>, inside wrapper div
+    const html = `<p>Intro.</p>\n<div class="header-wrapper">\n<h3>Some Article</h3><a class="header-anchor" href="#some-article" aria-label="Permalink to &quot;Some Article&quot; heading">🔗</a></div><p>Commentary here.</p>\n<div class="header-wrapper">\n<h3>Another Thing</h3><a class="header-anchor" href="#another-thing" aria-label="Permalink to &quot;Another Thing&quot; heading">🔗</a></div><p>More notes.</p>`;
+    const result = parseLinkSections(html);
+    expect(result[""]).toBe("<p>Intro.</p>");
+    expect(result["Some Article"]).toBe('<p>Commentary here.</p>');
+    expect(result["Another Thing"]).toBe('<p>More notes.</p>');
+  });
+
+  it("returns empty intro for null/undefined input", () => {
+    expect(parseLinkSections(null)[""]).toBe("");
+    expect(parseLinkSections(undefined)[""]).toBe("");
+  });
+
+  it("returns empty string for a link title with no commentary", () => {
+    // Matches real markdown-it-anchor linkAfterHeader output: anchor is after </h3>, inside wrapper div
+    const html = `<p>Intro.</p><div class="header-wrapper"><h3>No Commentary</h3><a class="header-anchor" href="#no-commentary" aria-label="Permalink to &quot;No Commentary&quot; heading">🔗</a></div><div class="header-wrapper"><h3>Has Commentary</h3><a class="header-anchor" href="#has-commentary" aria-label="Permalink to &quot;Has Commentary&quot; heading">🔗</a></div><p>Text.</p>`;
+    const result = parseLinkSections(html);
+    expect(result["No Commentary"]).toBe("");
+    expect(result["Has Commentary"]).toBe("<p>Text.</p>");
   });
 });
